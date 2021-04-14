@@ -368,7 +368,7 @@ font pango:Noto Mono Regular 13
 # you can find the class with the program xprop
 
 # Workspace 1  terminal related
-assign [class="termite|Termite"]                      → 1
+#assign [class="termite|Termite"]                      → 1
 
 # Workspace 2 browser related
 assign [class="Chromium|Google-chrome"]                                             → 2
@@ -589,6 +589,7 @@ bindsym Control+Shift+Print exec --no-startup-id gnome-screenshot -i
 
 #floating enabled from some programs - find with xprop
 
+for_window [class="burp-StartBurp"] floating enable
 for_window [class="Arcolinux-welcome-app.py"] floating enable
 #for_window [class="Arcolinux-tweak-tool.py"] floating enable
 for_window [class="Arcolinux-calamares-tool.py"] floating enable
