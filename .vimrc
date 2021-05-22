@@ -1,9 +1,13 @@
+" relative line numbers, usefull to know where to jump
+set number relativenumber
+set nu rnu
 
-set background=dark
-set number
-set termguicolors
 syntax on
 filetype plugin indent on
+set colorcolumn=100 " right side border
+
+""""" key bindings """""
+nmap <F8> :TagbarToggle<CR>
 
 " Plugins sections!
 call plug#begin('~/.vim/plugged')
@@ -14,16 +18,42 @@ Plug 'rust-lang/rust.vim'
 " Coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" coc-rust-analyzer
+Plug 'fannheyward/coc-rust-analyzer'
+
+" tagbar
+Plug 'preservim/tagbar'
+
 " gruvbox
 Plug 'morhetz/gruvbox'
+
+" toml support
+Plug 'cespare/vim-toml'
+
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" Python (+coc extention, use CocInstall)
+Plug 'fannheyward/coc-pyright'
 
 call plug#end()
 
 " use gruvbox
-let g:gruvbox_transparent_bg=1
+"let g:gruvbox_transparent_bg=1
+
+" black background - alacritty
+"set termguicolors
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+set background=dark
 let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_color_column='red'
 autocmd vimenter * ++nested colorscheme gruvbox
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+autocmd vimenter * hi Normal guibg=black ctermbg=black
+
+"set font
+set guifont=JetBrains\ Mono\ 13
 
 " Powerline
 set rtp+=~/.local/lib/python3.9/site-packages/powerline/bindings/vim
@@ -31,7 +61,6 @@ set rtp+=~/.local/lib/python3.9/site-packages/powerline/bindings/vim
 set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
-
 
 """"" coc.nvim stuff "
 
