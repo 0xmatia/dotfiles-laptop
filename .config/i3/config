@@ -141,20 +141,14 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 #####################################################################################################################
 
 # start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+bindsym mod1+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
-# gmrun
-#bindsym mod1+F2 exec --no-startup-id gmrun
+# Rofi main
+bindsym $mod+d exec rofi -modi drun -show drun \
+			-config /home/syberman/.config/rofi/rofidmenu.rasi
 
-# start xfce-appfinder
-bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
-
-# start rofi full
-#bindsym $mod+F11 exec --no-startup-id rofi -show run -fullscreen -font "Noto Sans 13"
-
-# start rofi small
-bindsym $mod+F12 exec --no-startup-id rofi -show run -font "Noto Sans 13"
-
+# rofi window switcher
+bindsym $mod+t exec rofi -show window -config /home/syberman/.config/rofi/rofidmenu.rasi
 
 
 #####################################################################################################################
@@ -735,7 +729,7 @@ bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 
 #changing border style
 #super+t in arcolinux is starting terminal
-bindsym $mod+t border normal
+bindsym $mod+i border normal
 bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
