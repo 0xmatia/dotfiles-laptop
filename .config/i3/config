@@ -3,14 +3,6 @@
 # I3 config by Elad Matia, forked from ArcoLinux #
 ##################################################
 
-
-#####################################################################################################################
-#####################################################################################################################
-#################                          Start of all the settings                                #################
-#####################################################################################################################
-#####################################################################################################################
-
-
 # KEY DEFINITIONS TO REMEMBER
 
 # $Mod = WINDOWS key or Super key or Mod4
@@ -59,42 +51,15 @@ set $right l
 #set $left j
 #set $right m
 
-
-
 #####################################################################################################################
 #################                          Single and Dual screen                                   #################
 #####################################################################################################################
-
 
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
-#exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
-#exec --no-startup-id xrandr --output DVI-I-0 --right-of HDMI-0 --auto
-#exec --no-startup-id xrandr --output DVI-1 --right-of DVI-0 --auto
-#exec --no-startup-id xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
-#exec --no-startup-id xrandr --output HDMI-2 --right-of HDMI-1 --auto
 exec --no-startup-id xrandr --output Virtual1 --right-of Virtual2 --auto
-
-
-# my current setup
-
-#set $firstMonitor DP3
-#set $secondMonitor LVDS1
-
-#set $firstMonitor DVI-I-0
-#set $secondMonitor HDMI-0
-
-
-#set $firstMonitor DVI-0
-#set $secondMonitor DVI-1
-
-#set $firstMonitor DVI-I-1
-#set $secondMonitor DVI-D-1
-
-#set $firstMonitor HDMI-1
-#set $secondMonitor HDMI-2
 
 set $firstMonitor Virtual1
 set $secondMonitor Virtual2
@@ -141,20 +106,14 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 #####################################################################################################################
 
 # start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+bindsym mod1+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
-# gmrun
-#bindsym mod1+F2 exec --no-startup-id gmrun
+# Rofi main
+bindsym $mod+d exec rofi -modi drun -show drun \
+			-config /home/syberman/.config/rofi/rofidmenu.rasi
 
-# start xfce-appfinder
-bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
-
-# start rofi full
-#bindsym $mod+F11 exec --no-startup-id rofi -show run -fullscreen -font "Noto Sans 13"
-
-# start rofi small
-bindsym $mod+F12 exec --no-startup-id rofi -show run -font "Noto Sans 13"
-
+# rofi window switcher
+bindsym $mod+t exec rofi -show window -config /home/syberman/.config/rofi/rofidmenu.rasi
 
 
 #####################################################################################################################
@@ -244,16 +203,12 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-
-
-
 #####################################################################################################################
 #################                          moving around workspaces                                 #################
 #####################################################################################################################
 
 
 # next/previous workspace
-
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
 bindsym $mod+Tab workspace back_and_forth
@@ -264,10 +219,6 @@ bindsym Mod1+Ctrl+Left workspace prev
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
-
-
-
-
 
 #####################################################################################################################
 #################                          Tiling parameters                                        #################
@@ -292,7 +243,6 @@ bindsym $mod+s layout stacking
 bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -301,10 +251,6 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-
-
-
-
 
 #####################################################################################################################
 #################                          resize                                                   #################
@@ -356,10 +302,6 @@ bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
 # choose your font
 font pango:Noto Mono Regular 13
 
-
-
-
-
 #####################################################################################################################
 #################                          assign applications to workspaces                       #################
 #####################################################################################################################
@@ -382,28 +324,17 @@ assign [class="Pcmanfm"]                                                        
 assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 4 
 
 # Workspace 5 Images and meld
-#assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
-#assign [class="feh|gthumb|Gthumb|eog|Eog|Pinta|pixeluvo|Pixeluvo"]                  → 5
-#assign [class="Meld"]                                                               → 5
-
 # Workspace 6 all video related software
-#assign [class="Vlc|vlc"]                                                            → 6
 
 # Workspace 7 virtual machines and settings
 #assign [class="Vmplayer|VirtualBox"]						    → 7
-
 # Workspace 8 file managers
-
 # Workspace 9 email clients
 #assign [class="Geary|Evolution"]                                                    → 9
-
 # Workspace 10 music related
 #assign [class="Spotify|spotify"]                                                    → 10
 #fix for spotify not moving to workspace 10
 #for_window [class="Spotify"] move to workspace 10
-
-
-
 
 #####################################################################################################################
 #################           autostart   -    execute applications at boot time                      #################
@@ -416,6 +347,12 @@ exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 
 # Autotiling
 exec_always --no-startup-id autotiling
+
+#Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
+
+# picom (transparency)
+exec --no-startup-id -b --no-vsync --config ~/.config/i3/picom.conf
 
 # TRAY APPLICATIONS
 
@@ -453,9 +390,6 @@ exec --no-startup-id volumeicon
 #nitrogen
 exec --no-startup-id nitrogen --restore
 
-#Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
-
 #####################################################################################################################
 #################                                 system applications                               #################
 #####################################################################################################################
@@ -487,7 +421,6 @@ bindsym control+mod1+Prior exec --no-startup-id conky-rotate -p
 bindsym $mod+Return exec --no-startup-id alacritty;focus
 bindsym $mod+KP_Enter exec --no-startup-id alacritty;focus
 bindsym control+mod1+t exec --no-startup-id alacritty; focus
-bindsym control+mod1+Return exec --no-startup-id termite; focus
 bindsym control+mod1+KP_Enter exec --no-startup-id alacritty; focus
 bindsym F12 exec --no-startup-id xfce4-terminal --drop-down; focus
 
@@ -530,9 +463,6 @@ bindsym --release $mod+Escape exec xkill
 
 #workspace related
 
-#workspace 1 related
-#qwerty/azerty conflict with w
-
 #workspace 2 related
 bindsym $mod+F2 exec --no-startup-id chromium;focus
 
@@ -567,9 +497,6 @@ bindsym $mod+F4 exec --no-startup-id pcmanfm;focus
 ##workspace 10 related
 #bindsym $mod+F10 exec --no-startup-id spotify;focus
 #bindsym control+mod1+s exec --no-startup-id spotify;focus
-
-
-
 
 #####################################################################################################################
 #################                          screenshots                                              #################
@@ -637,20 +564,6 @@ for_window [window_role="^Preferences$"] floating enable
 for_window [window_role="setup"] floating enable
 
 
-
-
-
-
-#####################################################################################################################
-#################                          give focus to applications                               #################
-#####################################################################################################################
-
-
-for_window [class="Gnome-terminal"] focus
-for_window [class="Termite"] focus
-for_window [class="Terminator"] focus
-
-
 #####################################################################################################################
 #################                          variety for your wallpapers                              #################
 #####################################################################################################################
@@ -713,17 +626,6 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
 
-
-
-#####################################################################################################################
-#################                          bar toggle                                               #################
-#####################################################################################################################
-
-
-# bar toggle, hide or show
-bindsym $mod+b bar mode toggle
-
-
 #####################################################################################################################
 #################                          border control                                           #################
 #####################################################################################################################
@@ -735,15 +637,11 @@ bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 
 #changing border style
 #super+t in arcolinux is starting terminal
-bindsym $mod+t border normal
+bindsym $mod+i border normal
 bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
-
 new_float pixel 1
-#new_float normal
-#new_float none
-
 
 #####################################################################################################################
 #################                          Popups  control                                          #################
@@ -751,9 +649,6 @@ new_float pixel 1
 
 #Popups during fullscreen mode
 popup_during_fullscreen smart
-
-
-
 
 #####################################################################################################################
 #################                          i3 gaps next                                             #################
@@ -814,8 +709,6 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-
 
 
 #####################################################################################################################
