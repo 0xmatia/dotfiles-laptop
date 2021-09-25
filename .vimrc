@@ -18,8 +18,9 @@ Plug 'rust-lang/rust.vim'
 " Coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" coc-rust-analyzer
-Plug 'fannheyward/coc-rust-analyzer'
+" coc.vim plugins (Install with :CocInstall <name> ONLY!)
+" 'fannheyward/coc-rust-analyzer' - Rust
+" 'fannheyward/coc-pyright' - Python
 
 " tagbar
 Plug 'preservim/tagbar'
@@ -32,9 +33,6 @@ Plug 'cespare/vim-toml'
 
 " Markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-" Python (+coc extention, use CocInstall)
-Plug 'fannheyward/coc-pyright'
 
 call plug#end()
 
