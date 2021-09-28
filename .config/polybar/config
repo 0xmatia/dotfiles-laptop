@@ -20,31 +20,31 @@ margin-bottom = 0
 ;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
 throttle-output = 5
 throttle-output-for = 10
-screenchange-reload = true
-compositing-background = over
-compositing-foreground = over
-compositing-overline = over
-compositing-underline = over
-compositing-border = over
+#screenchange-reload = true
+#compositing-background = over
+#compositing-foreground = over
+#compositing-overline = over
+#compositing-underline = over
+#compositing-border = over
 
 ; Define fallback values used by all module formats
-format-foreground = #FF0000
-format-background = #00FF00
-format-underline =
-format-overline =
-format-spacing =
-format-padding =
-format-margin =
-format-offset =
+#format-foreground = #FF0000
+#format-background = #00FF00
+#format-underline =
+#format-overline =
+#format-spacing =
+#format-padding =
+#format-margin =
+#format-offset =
 
 [colors]
 ; Nord theme ============
-background = #2F343F
-foreground = #f3f4f5
-alert = #d08770
-volume-min = #a3be8c
-volume-med = #ebcb8b
-volume-max = #bf616a
+#background = #23262F
+#foreground = #f3f4f5
+#alert = #d08770
+#volume-min = #a3be8c
+#volume-med = #ebcb8b
+#volume-max = #bf616a
 ; =======================
 
 ; Gotham theme ==========
@@ -57,15 +57,13 @@ volume-max = #bf616a
 ; =======================
 
 ; INTRCPTR theme ============
-;background = ${xrdb:color0:#222}
-;background = #aa000000
-;background-alt = #444
-;foreground = ${xrdb:color7:#222}
-;foreground = #fff
-;foreground-alt = #555
-;primary = #ffb52a
-;secondary = #e60053
-;alert = #bd2c40
+background = #aa000000
+background-alt = #444
+foreground = #fff
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
 
 ################################################################################
 ################################################################################
