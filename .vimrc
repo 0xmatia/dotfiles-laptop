@@ -5,8 +5,10 @@ set nu rnu
 syntax on
 filetype plugin indent on
 set colorcolumn=100 " right side border
+set showcmd
 
 """"" key bindings """""
+let g:mapleader = " "
 nmap <F8> :TagbarToggle<CR>
 
 " Plugins sections!
@@ -61,6 +63,8 @@ set laststatus=2
 set t_Co=256
 
 """"" coc.nvim stuff "
+
+let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-rust-analyzer']
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
