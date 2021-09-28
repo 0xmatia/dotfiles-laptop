@@ -39,12 +39,12 @@ throttle-output-for = 10
 
 [colors]
 ; Nord theme ============
-#background = #23262F
-#foreground = #f3f4f5
-#alert = #d08770
-#volume-min = #a3be8c
-#volume-med = #ebcb8b
-#volume-max = #bf616a
+background = #5523262F
+foreground = #f3f4f5
+alert = #d08770
+volume-min = #a3be8c
+volume-med = #ebcb8b
+volume-max = #bf616a
 ; =======================
 
 ; Gotham theme ==========
@@ -57,13 +57,14 @@ throttle-output-for = 10
 ; =======================
 
 ; INTRCPTR theme ============
-background = #aa000000
-background-alt = #444
-foreground = #fff
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+#background = #aa000000
+##background = #5523262F
+#background-alt = #444
+#foreground = #fff
+#foreground-alt = #555
+#primary = #ffb52a
+#secondary = #e60053
+#alert = #bd2c40
 
 ################################################################################
 ################################################################################
@@ -101,7 +102,7 @@ border-size = 0
 ;border-right-size = 25
 ;border-top-size = 0
 ;border-bottom-size = 25
-border-color = #000000
+#border-color = #000000
 
 padding-left = 1
 padding-right = 1
