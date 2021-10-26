@@ -80,7 +80,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git 
 	zsh-autosuggestions
-	zsh-syntax-highlighting)
+	zsh-syntax-highlighting
+ 	fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,3 +117,5 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ip='ip -c'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+neofetch
+#sysinfo

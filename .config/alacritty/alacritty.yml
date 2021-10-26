@@ -11,9 +11,9 @@ font:
   size: 11
 
 # colors!!!!!
-
 schemes:
-  default: &default
+  default:
+    &default
     primary:
       background: "#222222"
       foreground: "#F9F9F9"
@@ -36,7 +36,8 @@ schemes:
       cyan: "#93e0e3"
       white: "#ffffff"
 
-  ayu_dark: &ayu_dark
+  ayu_dark:
+    &ayu_dark
     colors:
       primary:
         background: "#0A0E14"
@@ -60,31 +61,59 @@ schemes:
         cyan: "#95E6CB"
         white: "#FFFFFF"
 
-  one-dark: &one_dark
-      primary:
-        background: "#282c34"
-        foreground: "#abb2bf"
-      normal:
-        black: "#282c34"
-        red: "#e06c75"
-        green: "#98c379"
-        yellow: "#d19a66"
-        blue: "#61afef"
-        magenta: "#c678dd"
-        cyan: "#56b6c2"
-        white: "#abb2bf"
-      bright:
-        black: "#5c6370"
-        red: "#e06c75"
-        green: "#98c379"
-        yellow: "#d19a66"
-        blue: "#61afef"
-        magenta: "#c678dd"
-        cyan: "#56b6c2"
-        white: "#ffffff"
-# modify this line to change colors scheme
-colors: *one_dark
+  one-dark:
+    &one_dark
+    primary:
+      background: "#282c34"
+      foreground: "#abb2bf"
+    normal:
+      black: "#282c34"
+      red: "#e06c75"
+      green: "#98c379"
+      yellow: "#d19a66"
+      blue: "#61afef"
+      magenta: "#c678dd"
+      cyan: "#56b6c2"
+      white: "#abb2bf"
+    bright:
+      black: "#5c6370"
+      red: "#e06c75"
+      green: "#98c379"
+      yellow: "#d19a66"
+      blue: "#61afef"
+      magenta: "#c678dd"
+      cyan: "#56b6c2"
+      white: "#ffffff"
 
+  active:
+    &active  
+    primary:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+ 
+    # Normal colors
+    normal:
+      black: '#000000'
+      red: '#ff5555'
+      green: '#50fa7b'
+      yellow: '#f1fa8c'
+      blue: '#caa9fa'
+      magenta: '#ff79c6'
+      cyan: '#8be9fd'
+      white: '#bfbfbf'
+ 
+    # Bright colors
+    bright:
+      black: '#575b70'
+      red: '#ff6e67'
+      green: '#5af78e'
+      yellow: '#f4f99d'
+      blue: '#caa9fa'
+      magenta: '#ff92d0'
+      cyan: '#9aedfe'
+      white: '#e6e6e6'
+
+  # modify this line to change colors scheme
+  colors: *active
 # background_opacity
-background_opacity: 0.6
-
+background_opacity: 0.8
