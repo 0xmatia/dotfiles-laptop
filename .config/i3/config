@@ -587,7 +587,7 @@ bindsym mod1+Down exec --no-startup-id variety --resume
 
 
 #####################################################################################################################
-#################                          variety with pywal for your wallpapers                   #################
+#################                 k        variety with pywal for your wallpapers                   #################
 #####################################################################################################################
 
 # next wallpaper
@@ -638,7 +638,7 @@ bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 #changing border style
 #super+t in arcolinux is starting terminal
 bindsym $mod+i border normal
-bindsym $mod+y border 1pixel
+bindsym $mod+y border 5 pixel
 bindsym $mod+u border none
 
 new_float pixel 1
