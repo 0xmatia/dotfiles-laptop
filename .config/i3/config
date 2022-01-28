@@ -102,7 +102,7 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
 
 #####################################################################################################################
-#################                          3 menu's in arcolinux                                     #################
+#################                          3 menu                                     #################
 #####################################################################################################################
 
 # start dmenu
@@ -122,7 +122,7 @@ bindsym $mod+t exec rofi -show window -config /home/syberman/.config/rofi/rofidm
 
 #Backup exit
 #Press ctrl+alt+x - check toolbar for next choices
-bindsym control+mod1+X mode "$mode_system"
+bindsym control+mod0+X mode "$mode_system"
 
 set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
 mode "$mode_system" {
@@ -300,7 +300,7 @@ bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # choose your font
-font pango:Noto Mono Regular 13
+font pango:Fantasque Sans Mono Regular 13
 
 #####################################################################################################################
 #################                          assign applications to workspaces                       #################
@@ -310,18 +310,16 @@ font pango:Noto Mono Regular 13
 # you can find the class with the program xprop
 
 # Workspace 1  terminal related
-#assign [class="termite|Termite"]                      → 1
 
 # Workspace 2 browser related
-assign [class="Chromium|Google-chrome"]                                             → 2
+assign [class="Firefox|firefox"]                                             → 2
 
 # Workspace 3 text editor 
 assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3|Code"]       → 3
-#assign [class="Inkscape"]                                                           → 3
 
 # Workspace 4 files
 assign [class="Pcmanfm"]                                                               → 4
-assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 4 
+assign [class="Nemo|Thunar|Caja|nautilus|Nautilus|ranger"]                                 → 4 
 
 # Workspace 5 Images and meld
 # Workspace 6 all video related software
@@ -341,9 +339,6 @@ assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                             
 #####################################################################################################################
 
 # USER APPLICATIONS TO START AT BOOT
-
-# ArcoLinux Welcome App
-exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 
 # Autotiling
 exec_always --no-startup-id autotiling
@@ -378,14 +373,8 @@ exec_always --no-startup-id numlockx on
 #exec --no-startup-id pasystray
 exec --no-startup-id volumeicon
 
-#variety
-#exec --no-startup-id variety
-
 # clipman
 #exec --no-startup-id xfce4-clipman
-
-#Conky
-#exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 #nitrogen
 exec --no-startup-id nitrogen --restore
@@ -394,11 +383,11 @@ exec --no-startup-id nitrogen --restore
 #################                                 system applications                               #################
 #####################################################################################################################
 
-exec --no-startup-id xfce4-power-manager &
+# exec --no-startup-id xfce4-power-manager &
 # ommitted next line to get super key to bring up the menu in xfce and avoid error then in i3
 # IF xfsettingsd is activated you can not change themes
 #exec --no-startup-id xfsettingsd &
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+# exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 #####################################################################################################################
 #################                          applications keyboard shortcuts                          #################
@@ -406,32 +395,21 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 #not workspace related
 
-#ArcoLinux Welcome App
-bindsym control+mod1+w exec --no-startup-id arcolinux-welcome-app
-
-#ArcoLinux Tweak Tool
-bindsym control+mod1+e exec --no-startup-id arcolinux-tweak-tool
-
-#conky
-bindsym $mod+c exec --no-startup-id conky-toggle
-bindsym control+mod1+Next exec --no-startup-id conky-rotate -n
-bindsym control+mod1+Prior exec --no-startup-id conky-rotate -p
-
 # terminal
 bindsym $mod+Return exec --no-startup-id alacritty;focus
 bindsym $mod+KP_Enter exec --no-startup-id alacritty;focus
 bindsym control+mod1+t exec --no-startup-id alacritty; focus
 bindsym control+mod1+KP_Enter exec --no-startup-id alacritty; focus
-bindsym F12 exec --no-startup-id xfce4-terminal --drop-down; focus
+# bindsym F12 exec --no-startup-id xfce4-terminal --drop-down; focus
 
 #System monitor
 bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
 
 #settings
-bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
+# bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
 
 #catfish
-bindsym control+mod1+c exec --no-startup-id catfish;focus
+# bindsym control+mod1+c exec --no-startup-id catfish;focus
 
 #arcolinux-logout
 bindsym control+mod1+k exec --no-startup-id arcolinux-logout
@@ -440,8 +418,8 @@ bindsym control+mod1+l exec --no-startup-id arcolinux-logout
 #rofi theme selector
 bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
-#arcolinux conflict
-#bindsym $mod+m exec --no-startup-id pragha;focus
+# arcolinux conflict
+# #bindsym $mod+m exec --no-startup-id pragha;focus
 
 #htop
 #arcolinux conflict
@@ -453,10 +431,10 @@ bindsym control+mod1+u exec --no-startup-id pavucontrol
 
 # start xfce-appfinder
 #arcolinux does not seem to work
-bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
+# bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
 
 #pamac-manager
-bindsym control+mod1+p exec --no-startup-id pamac-manager
+# bindsym control+mod1+p exec --no-startup-id pamac-manager
 
 #xkill
 bindsym --release $mod+Escape exec xkill
@@ -464,13 +442,13 @@ bindsym --release $mod+Escape exec xkill
 #workspace related
 
 #workspace 2 related
-bindsym $mod+F2 exec --no-startup-id chromium;focus
+bindsym $mod+F2 exec --no-startup-id firefox;focus
 
 #workspace 3 related
 bindsym $mod+F3 exec --no-startup-id code;focus
 
 #workspace 4 related
-bindsym $mod+F4 exec --no-startup-id pcmanfm;focus
+bindsym $mod+F4 exec --no-startup-id nautilus;focus
 
 #workspace 5 related
 #bindsym $mod+F5 exec --no-startup-id meld;focus
@@ -503,8 +481,8 @@ bindsym $mod+F4 exec --no-startup-id pcmanfm;focus
 #####################################################################################################################
 
 
-bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
-bindsym Control+Print exec --no-startup-id xfce4-screenshooter
+bindsym Print exec --no-startup-id flameshot full -p /home/syberman/Pictures
+# :bindsym Control+Print exec --no-startup-id xfce4-screenshooter
 bindsym Control+Shift+Print exec --no-startup-id gnome-screenshot -i
 #bindsym shift+Print exec --no-startup-id shutter
 
@@ -565,42 +543,6 @@ for_window [window_role="setup"] floating enable
 
 
 #####################################################################################################################
-#################                          variety for your wallpapers                              #################
-#####################################################################################################################
-
-
-#Variety keybindings mod1 = ALT
-# trash wallpaper
-bindsym mod1+t exec --no-startup-id variety -t
-# next wallpaper
-bindsym mod1+n exec --no-startup-id variety -n
-bindsym mod1+Right exec --no-startup-id variety -n
-# previous wallpaper
-bindsym mod1+p exec --no-startup-id variety -p
-bindsym mod1+Left exec --no-startup-id variety -p
-# favorite wallpaper
-bindsym mod1+f exec --no-startup-id variety -f
-# pause wallpaper
-bindsym mod1+Up exec --no-startup-id variety --pause
-# resume wallpaper
-bindsym mod1+Down exec --no-startup-id variety --resume
-
-
-#####################################################################################################################
-#################                 k        variety with pywal for your wallpapers                   #################
-#####################################################################################################################
-
-# next wallpaper
-bindsym mod1+Shift+n exec --no-startup-id variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
-# previous wallpaper
-bindsym mod1+Shift+p exec --no-startup-id variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
-# trash wallpaper
-bindsym mod1+Shift+t exec --no-startup-id variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
-# Update Wallpaper
-bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)
-
-
-#####################################################################################################################
 #################                          audio settings                                           #################
 #####################################################################################################################
 
@@ -638,7 +580,7 @@ bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 #changing border style
 #super+t in arcolinux is starting terminal
 bindsym $mod+i border normal
-bindsym $mod+y border 5 pixel
+bindsym $mod+y border pixel 5
 bindsym $mod+u border none
 
 new_float pixel 1
@@ -721,11 +663,7 @@ mode "$mode_gaps_outer" {
 bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 #####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
 #################                          bar appearance                                           #################
-#####################################################################################################################
-#####################################################################################################################
 #####################################################################################################################
 
     ##START THEMING WM
@@ -744,14 +682,6 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
     ##STOP THEMING WM
 
 #####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
 ########################################               THE   END          ###########################################
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
 #####################################################################################################################
 
