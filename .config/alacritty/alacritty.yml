@@ -3,56 +3,37 @@ scrolling:
 
 font:
   normal:
-    family: JetBrains Mono
+    family: Fantasque Sans Mono
     style: Regular
   bold:
-    family: Jetbrains Mono
+    family: Fantasque Sans Mono
     style: Italic
   size: 11
 
 # colors!!!!!
 ## background_opacity
-background_opacity: 0.8
+window_opacity: 0.9
 colors:
-  # Default colors
   primary:
-    background: '#232627'
-    foreground: '#fcfcfc'
-
-    dim_foreground: '#eff0f1'
-    bright_foreground: '#ffffff'
-    dim_background: '#31363b'
-    bright_background: '#000000'
-
-  # Normal colors
+    background: '0x2e3436'
+    foreground: '0xd3d7cf'
+    
   normal:
-    black: '#232627'
-    red: '#ed1515'
-    green: '#11d116'
-    yellow: '#f67400'
-    blue: '#1d99f3'
-    magenta: '#9b59b6'
-    cyan: '#1abc9c'
-    white: '#fcfcfc'
+    black: '0x2e3436'
+    red: '0xcc0000'
+    green: '0x4e9a06'
+    yellow: '0xc4a000'
+    blue: '0x3465a4'
+    magenta: '0x75507b'
+    cyan: '0x06989a'
+    white: '0xd3d7cf'
 
-  # Bright colors
   bright:
-    black: '#7f8c8d'
-    red: '#c0392b'
-    green: '#1cdc9a'
-    yellow: '#fdbc4b'
-    blue: '#3daee9'
-    magenta: '#8e44ad'
-    cyan: '#16a085'
-    white: '#ffffff'
-
-  # Dim colors
-  dim:
-    black: '#31363b'
-    red: '#783228'
-    green: '#17a262'
-    yellow: '#b65619'
-    blue: '#1b668f'
-    magenta: '#614a73'
-    cyan: '#186c60'
-    white: '#63686d'
+    black: '0x555753'
+    red: '0xef2929'
+    green: '0x8ae234'
+    yellow: '0xfce94f'
+    blue: '0x729fcf'
+    magenta: '0xad7fa8'
+    cyan: '0x34e2e2'
+    white: '0xeeeeec'
