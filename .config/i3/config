@@ -349,6 +349,9 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 # picom (transparency)
 exec --no-startup-id picom -b --no-vsync --config ~/.config/i3/picom.conf
 
+# vmware-user for copy-paste in VMs
+exec --no-startup-id vmware-user
+
 # TRAY APPLICATIONS
 
 # applications that are not installed will not start
