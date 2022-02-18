@@ -110,7 +110,7 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
 # Rofi main
 bindsym $mod+d exec rofi -modi drun -show drun \
-			-config /home/syberman/.config/rofi/rofidmenu.rasi
+			-config /home/syberman/.config/rofi/config.rasi
 
 # rofi window switcher
 bindsym $mod+t exec rofi -show window -config /home/syberman/.config/rofi/rofidmenu.rasi
