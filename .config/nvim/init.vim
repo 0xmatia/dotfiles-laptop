@@ -82,6 +82,9 @@ nnoremap gf :vert winc f<cr>
 " copies pwd to clipboard: command yd
 :nnoremap <silent> yd :let @+=expand('%:p:h')<CR>
 
+" nerdcommenter config
+let g:NERDCreateDefaultMappings = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "				Colors, Themes & customization			   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -112,11 +115,6 @@ highlight DiffChange   ctermbg=238
 " Code folding
 highlight Folded ctermfg=1 ctermbg=0
 highlight FoldColumn ctermfg=1 ctermbg=0
-
-" Tab line
-" highlight TabLineFill ctermbg=234 ctermfg=7 term=NONE cterm=NONE
-" highlight TabLine ctermbg=236 ctermfg=230   term=NONE cterm=NONE
-" highlight TabLineSel ctermbg=240 ctermfg=7  term=NONE cterm=bold
 
 " Debugger
 highlight debugPC ctermbg=24
