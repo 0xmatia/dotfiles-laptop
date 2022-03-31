@@ -14,3 +14,9 @@ config config --local status.showUntrackedFiles no
 config remote add origin https://github.com/JavaMatia/dotfiles.git
 config pull origin main
 ```
+
+# Programs
+* i3-gaps
+* polybar
+* picom-jonaburg-git
+* nvim
