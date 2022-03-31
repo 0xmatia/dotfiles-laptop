@@ -1,22 +1,26 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "					General options					  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
-set number relativenumber 	" relative line numbers
-set cc=100					" set right side column
-set showmatch				" show matching
-set ignorecase				" ignore casing
-set hlsearch				" highlight search
-set tabstop=4				" set tab size
-set softtabstop=4			" tab stuff
-set shiftwidth=4			" width for auto-indent
-set autoindent				" autoindent
-set wildmode=longest,list	" bash-like autocompletion
-filetype plugin indent on	" auto-indent based on file type
-set syntax					" syntax highlighting
-set mouse=a					" enable mouse
-set clipboard=unnamedplus	" use system clipboard
+set number relativenumber					" relative line numbers
+set cc=100									" set right side column
+set signcolumn=yes							" fixed column for diagnostics
+set updatetime=300							" 300ms of no cursor movements
+set showmatch								" show matching
+set ignorecase								" ignore casing
+set hlsearch								" highlight search
+set tabstop=4								" set tab size
+set softtabstop=4							" tab stuff
+set shiftwidth=4							" width for auto-indent
+set autoindent								" autoindent
+set wildmode=longest,list					" bash-like autocompletion
+set completeopt=menuone,noinsert,noselect	" auto-completion options
+set shortmess+=c
+filetype plugin indent on					" auto-indent based on file type
+set syntax									" syntax highlighting
+set mouse=a									" enable mouse
+set clipboard=unnamedplus					" use system clipboard
 filetype plugin on
-set ttyfast					" speed up scrolling
+set ttyfast									" speed up scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -28,7 +32,6 @@ Plug 'dracula/vim'
 Plug 'preservim/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-startify'
 Plug 'rust-lang/rust.vim'
@@ -36,6 +39,26 @@ Plug 'preservim/tagbar'
 Plug 'cespare/vim-toml'
 Plug 'vim-airline/vim-airline'
 Plug 'neovim/nvim-lspconfig'
+" Autocompletion framework
+Plug 'hrsh7th/nvim-cmp'
+" cmp LSP completion
+Plug 'hrsh7th/cmp-nvim-lsp'
+" cmp Snippet completion
+Plug 'hrsh7th/cmp-vsnip'
+" cmp Path completion
+Plug 'hrsh7th/cmp-path'
+" cmp buffer completion
+Plug 'hrsh7th/cmp-buffer'
+" cmp cmdline auto-completion
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'simrat39/rust-tools.nvim'
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" nord colorscheme
+Plug 'arcticicestudio/nord-vim'
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 
@@ -82,43 +105,16 @@ nnoremap gf :vert winc f<cr>
 " copies pwd to clipboard: command yd
 :nnoremap <silent> yd :let @+=expand('%:p:h')<CR>
 
-" nerdcommenter config
-let g:NERDCreateDefaultMappings = 1
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "				Colors, Themes & customization			   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set background=dark 
-
-highlight clear SignColumn
-highlight ColorColumn  ctermbg=234
-highlight LineNr       ctermbg=234 ctermfg=14
-highlight CursorLineNr ctermbg=23 ctermfg=7
-highlight CursorLine   ctermbg=236
-highlight IncSearch    ctermbg=3   ctermfg=1
-highlight Search       ctermbg=1   ctermfg=3
-highlight Visual       ctermbg=1   ctermfg=16
-highlight Pmenu        ctermbg=240 ctermfg=12
-highlight PmenuSel     ctermbg=3   ctermfg=1
-highlight SpellBad     ctermbg=0   ctermfg=1
-highlight SpellCap     ctermbg=4   ctermfg=15
-highlight VertSplit    ctermbg=6   ctermfg=0
-highlight MatchParen   ctermbg=241
-highlight SpellLocal   ctermbg=55
-highlight Search       ctermfg=15 ctermbg=52
-
-" highlight clear MatchParen
-highlight DiffAdd      ctermbg=4   ctermfg=15
-highlight DiffDelete   ctermbg=5   ctermfg=14
-highlight DiffChange   ctermbg=238
-
-" Code folding
-highlight Folded ctermfg=1 ctermbg=0
-highlight FoldColumn ctermfg=1 ctermbg=0
-
-" Debugger
-highlight debugPC ctermbg=24
-
+colorscheme nord							" nord colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "						LUA STUFF						   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
