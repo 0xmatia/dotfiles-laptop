@@ -120,4 +120,3 @@ end
 
 -- Treesitter configuration
 require("Treesitter")
-
