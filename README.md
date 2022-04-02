@@ -20,3 +20,4 @@ config pull origin main
 * polybar
 * picom-jonaburg-git
 * nvim
+* nvim-packer-git
