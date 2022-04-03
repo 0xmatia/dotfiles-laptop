@@ -22,6 +22,9 @@ require('packer').startup(function()
 		},
 	}
 
+	-- impatient (speed up startup times)
+	use 'lewis6991/impatient.nvim'
+
 	-- bufferline
 	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 

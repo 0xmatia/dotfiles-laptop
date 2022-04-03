@@ -12,3 +12,4 @@ require("user.nvimtree")	-- nvim tree
 require("user.lualine")		-- lualine config
 require("user.toggleterm")	-- toggleterm
 require("user.bufferline")	-- bufferline
+require("user.impatient")	-- use caching
