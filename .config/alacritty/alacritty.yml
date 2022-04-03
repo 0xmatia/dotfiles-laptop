@@ -7,10 +7,17 @@ font:
     style: Regular
   bold:
     family: Jetbrains Mono
+    style: Bold
+  italic: 
+    family: Jetbrains Mono
     style: Italic
+  bold_italic:
+    family: Jetbrains Mono
+    style: Bold Italic
   size: 11
 
-# colors!!!!!
+# colors!
+
 ## background_opacity
 window_opacity: 1
 colors:
@@ -53,27 +60,3 @@ colors:
     - { index: 19, color: '0x353535' }
     - { index: 20, color: '0xb2ccd6' }
     - { index: 21, color: '0xeeffff' }
-# default color scheme
-  #  primary:
-  #    background: '0x2e3436'
-  #    foreground: '0xd3d7cf'
-  #    
-  #  normal:
-  #    black: '0x2e3436'
-  #    red: '0xcc0000'
-  #    green: '0x4e9a06'
-  #    yellow: '0xc4a000'
-  #    blue: '0x3465a4'
-  #    magenta: '0x75507b'
-  #    cyan: '0x06989a'
-  #    white: '0xd3d7cf'
-  #
-  #  bright:
-  #    black: '0x555753'
-  #    red: '0xef2929'
-  #    green: '0x8ae234'
-  #    yellow: '0xfce94f'
-  #    blue: '0x729fcf'
-  #    magenta: '0xad7fa8'
-  #    cyan: '0x34e2e2'
-  #    white: '0x63686d'
