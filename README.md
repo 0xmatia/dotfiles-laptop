@@ -11,7 +11,7 @@ I followed [this](https://dev.to/nimai/yet-another-guide-on-backing-up-dotfiles-
 git init --bare $HOME/.cfg
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
-config remote add origin https://github.com/JavaMatia/dotfiles.git
+config remote add origin https://github.com/syb3rman/dotfiles.git
 config pull origin main
 ```
 
