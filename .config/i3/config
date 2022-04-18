@@ -109,11 +109,12 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 # bindsym mod1+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
 # Rofi main
-bindsym $mod+d exec rofi -modi drun -show drun \
+bindsym $mod+d exec rofi -modi drun -show drun -show-icons \
 			-config /home/syberman/.config/rofi/config.rasi
 
 # rofi window switcher
-bindsym $mod+t exec rofi -show window -config /home/syberman/.config/rofi/rofidmenu.rasi
+bindsym $mod+t exec rofi modi window -show window -show-icons \
+			-config /home/syberman/.config/rofi/config.rasi
 
 
 #####################################################################################################################
