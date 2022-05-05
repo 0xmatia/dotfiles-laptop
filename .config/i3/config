@@ -350,6 +350,9 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 # picom (transparency)
  exec --no-startup-id picom -b --config ~/.config/i3/picom.conf
 
+# dunst - notifications
+exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
 # vmware-user for copy-paste in VMs
 exec --no-startup-id vmware-user
 

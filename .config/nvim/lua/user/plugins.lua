@@ -83,6 +83,6 @@ require('packer').startup(function()
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
 	-- Colorschemes --
-	use 'arcticicestudio/nord-vim'	-- nord colorscheme
 	use "yong1le/darkplus.nvim"		-- darkplus colorscheme
+	use "ellisonleao/gruvbox.nvim"			-- gruvbox colorscheme
 end)
