@@ -52,6 +52,8 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 -- Telescope config
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
+keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
 
 -- gitsigns config
 keymap("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", opts)
@@ -68,6 +70,7 @@ keymap("n", "<leader>F", ":Format<CR>", opts)
 -- terminals
 keymap("n", "<leader>lg", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
 keymap("n", "<leader>ip", ":lua _PYTHON_TOGGLE()<CR>", opts)
+keymap("n", "<leader>ot", ":lua _TERM_TOGGLE()<CR>", opts)
 
 -- Insert Mode --
 

@@ -84,5 +84,5 @@ require('packer').startup(function()
 
 	-- Colorschemes --
 	use "yong1le/darkplus.nvim"		-- darkplus colorscheme
-	use "ellisonleao/gruvbox.nvim"			-- gruvbox colorscheme
+	use 'folke/tokyonight.nvim'
 end)

@@ -1,6 +1,6 @@
 
 vim.opt.background = "dark";
-local colorscheme = "darkplus"
+local colorscheme = "tokyonight"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
@@ -9,6 +9,7 @@ if not status_ok then
 end
 
 -- lsp completion popup colors
+vim.cmd([[highlight! Normal guibg=NONE]])
 vim.cmd([[highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080]])
 vim.cmd([[highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6]])
 vim.cmd([[highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6]])

@@ -67,3 +67,8 @@ local python = Terminal:new({ cmd = "ipython3", hidden = true })
 function _PYTHON_TOGGLE()
 	python:toggle()
 end
+
+local term = Terminal:new({ cmd = "fish", hidden = true })
+function _TERM_TOGGLE()
+	term:toggle()
+end
