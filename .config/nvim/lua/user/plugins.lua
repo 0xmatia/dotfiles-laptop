@@ -4,8 +4,8 @@
 
 require('packer').startup(function()
 	use 'wbthomason/packer.nvim'	-- Packer can manage itself
-	use 'preservim/nerdcommenter'	-- usefull for commenting stuff
-	use 'mhinz/vim-startify'	-- startup screen
+	use 'numToStr/Comment.nvim'	-- useful for commenting stuff
+	use { 'goolord/alpha-nvim', requires = { 'kyazdani42/nvim-web-devicons' } }	-- startup screen
 
 	use 'rust-lang/rust.vim'	-- rust default settings
 	use 'simrat39/rust-tools.nvim'	-- rust tools for debugging and stuff
@@ -13,6 +13,17 @@ require('packer').startup(function()
 
 	use 'preservim/tagbar'	-- tagbar (functions, structs and stuff)
 	use 'windwp/nvim-autopairs'		-- auto pairs
+	use 'ahmedkhalf/project.nvim' -- project managment
+	use 'rcarriga/nvim-notify' -- notification library
+	use 'karb94/neoscroll.nvim' -- smooth scrolling
+	use 'matbme/JABS.nvim' -- buffer switcher
+	use "lukas-reineke/indent-blankline.nvim" --indentations
+	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+
+	use {
+		"folke/todo-comments.nvim", -- for todo comments
+		requires = { "nvim-lua/plenary.nvim" }
+	}
 
 	-- File tree --
 	use {
@@ -40,7 +51,9 @@ require('packer').startup(function()
 	-- lsp --
 	use {
 		'neovim/nvim-lspconfig',		-- lsp configuration for neovim
-		'williamboman/nvim-lsp-installer' -- lsp installer
+		'williamboman/nvim-lsp-installer', -- lsp installer
+		'ray-x/lsp_signature.nvim', -- signature as you type
+		'jose-elias-alvarez/null-ls.nvim'
 	}
 
 	-- git stuff
@@ -56,6 +69,7 @@ require('packer').startup(function()
 		'petertriho/cmp-git',   -- for git auto-completion
 		'hrsh7th/cmp-nvim-lua',	-- for nvim lua auto-completion
 		"saadparwaiz1/cmp_luasnip",	-- snippet completion
+		'rcarriga/cmp-dap',
 		'onsails/lspkind-nvim'	-- customize popup
 	}
 	-- crate.io cmp completion
@@ -81,8 +95,10 @@ require('packer').startup(function()
 
 	-- Treesitter
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	use 'nvim-treesitter/nvim-treesitter-context'
+	use "JoosepAlviste/nvim-ts-context-commentstring"
 
 	-- Colorschemes --
-	use "yong1le/darkplus.nvim"		-- darkplus colorscheme
 	use 'folke/tokyonight.nvim'
+	use "lunarvim/darkplus.nvim"
 end)

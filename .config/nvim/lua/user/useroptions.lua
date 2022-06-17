@@ -31,3 +31,4 @@ vim.opt.scrolloff = 8															-- location of cursor in files
 vim.opt.sidescrolloff = 8
 vim.opt.termguicolors = true													-- rich colors
 vim.cmd('filetype plugin indent on')											-- plugin indent on
+vim.cmd('filetype plugin on')											        -- plugin indent on

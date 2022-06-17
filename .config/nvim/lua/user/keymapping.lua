@@ -54,6 +54,7 @@ keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<leader>fp", "<cmd>Telescope projects<CR>", opts)
 
 -- gitsigns config
 keymap("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", opts)
@@ -62,6 +63,20 @@ keymap("n", "<leader>gk", "<cmd>Gitsigns prev_hunk<CR>", opts)
 
 -- nvim tree
 keymap("n", "<leader>e", "<cmd>:NvimTreeToggle<CR>", opts)
+
+-- stop highlighting formatted text
+keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
+
+-- close buffer
+keymap("n", "Q", "<cmd>bdelete<CR>", opts)
+
+-- buffer switcher
+vim.api.nvim_set_keymap(
+  "n",
+  "=",
+  "<cmd>JABSOpen<cr>",
+  { noremap = true, silent = true, nowait = true }
+)
 
 -- formatting
 vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
