@@ -73,21 +73,21 @@ M.setup = function()
 end
 
 -- highlight matching word
-local function lsp_highlight_document(client)
-	-- Set autocommands conditional on server_capabilities
-	if client.resolved_capabilities.document_highlight then
-		vim.api.nvim_exec(
-			[[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-			false
-		)
-	end
-end
+-- local function lsp_highlight_document(client)
+-- 	-- Set autocommands conditional on server_capabilities
+-- 	if client.resolved_capabilities.document_highlight then
+-- 		vim.api.nvim_exec(
+-- 			[[
+--       augroup lsp_document_highlight
+--         autocmd! * <buffer>
+--         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+--         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+--       augroup END
+--     ]],
+-- 			false
+-- 		)
+-- 	end
+-- end
 
 -- exported function, calls on each lsp when attaching to a buffer
 -- make lsp highlightr "matching words (symbols etc) and bind the keymaps
@@ -102,11 +102,13 @@ M.on_attach = function(client, bufnr)
 	M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
 	lsp_keymaps(bufnr)
-	lsp_highlight_document(client)
+---@diagnostic disable-next-line: redefined-local
+	local status_ok, illuminate = pcall(require, "illuminate")
+	if not status_ok then
+		return
+	end
+	illuminate.on_attach(client)
 end
-
-
-
 
 function M.enable_format_on_save()
 	vim.cmd [[

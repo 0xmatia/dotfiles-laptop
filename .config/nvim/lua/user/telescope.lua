@@ -15,7 +15,7 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-	file_ignore_patterns = { ".git/", "node_modules/", "target/", "docs/", ".settings/" },
+	file_ignore_patterns = { ".git/", "node_modules/", "target/", "docs/"},
 
     mappings = {
       i = {
@@ -99,3 +99,5 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+telescope.load_extension 'notify'

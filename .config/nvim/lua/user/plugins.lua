@@ -11,6 +11,7 @@ require('packer').startup(function()
 	use 'simrat39/rust-tools.nvim'	-- rust tools for debugging and stuff
 	use 'cespare/vim-toml'	-- toml support (?)
 
+	use 'RRethy/vim-illuminate' -- highlights
 	use 'preservim/tagbar'	-- tagbar (functions, structs and stuff)
 	use 'windwp/nvim-autopairs'		-- auto pairs
 	use 'ahmedkhalf/project.nvim' -- project managment

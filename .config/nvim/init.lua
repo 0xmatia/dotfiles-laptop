@@ -1,9 +1,11 @@
 require("user.useroptions") -- vim options
+require("user.autocommands") -- autocommands
 require("user.plugins") -- plugins
 require("user.keymapping") -- general key mapping (not plugin-related)
 require("user.colorscheme") -- colors
 require("user.cmp") -- completion engine
 require("user.lsp") -- lsp configuration
+require("user.illuminate") -- highlight words
 require("user.telescope") -- telescope configs
 require("user.treesitter") --treesitter configuration
 require("user.ts-context") -- provides context
@@ -23,4 +25,3 @@ require("user.indentline") -- highlight indents
 require("user.dap") -- debuffer interface
 require("user.comment") -- comments
 require("user.alpha") -- startup screen
-

@@ -22,6 +22,7 @@ vim.opt.clipboard = 'unnamedplus'												-- use system clipboard
 vim.opt.cmdheight = 2															-- more space in the neovim command line for displaying messages
 vim.opt.fileencoding = 'utf-8'													-- file encoding
 vim.opt.pumheight = 10															-- popup menu hight
+vim.opt.cursorline = true														-- highlight line
 vim.opt.smartcase = true														-- smart case
 vim.opt.smartindent = true														-- smart indentation
 vim.opt.splitbelow = true														-- always split below
