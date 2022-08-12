@@ -25,3 +25,4 @@ require("user.indentline") -- highlight indents
 require("user.dap") -- debuffer interface
 require("user.comment") -- comments
 require("user.alpha") -- startup screen
+require("user.crates") -- rust crates

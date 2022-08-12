@@ -20,6 +20,8 @@ end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
+vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
+
 local check_backspace = function()
 	local col = vim.fn.col "." - 1
 	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
@@ -114,7 +116,12 @@ cmp.setup {
 		format = function(entry, vim_item)
 			-- Kind icons
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+
+			if entry.source.name == "crates" then
+				vim_item.kind = " "
+				vim_item.kind_hl_group = "CmpItemKindCrate"
+			end
+
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[LUA]",
@@ -122,7 +129,7 @@ cmp.setup {
 				luasnip = "[Snippet]",
 				buffer = "[Buffer]",
 				path = "[Path]",
-				dap = "[DAP]"
+				dap = "[DAP]",
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -134,7 +141,7 @@ cmp.setup {
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "dap" }
+		{ name = "dap" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
@@ -143,15 +150,15 @@ cmp.setup {
 	window = {
 		-- documentation = "native",
 		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			border = "rounded",
 			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 		},
 		completion = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			border = "rounded",
 			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 		},
 	},
 	experimental = {
-		ghost_text = true,
+		ghost_text = true
 	},
 }

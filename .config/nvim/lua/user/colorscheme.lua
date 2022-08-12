@@ -1,6 +1,13 @@
-
-vim.opt.background = "dark";
+-- vim.opt.background = "dark";
 local colorscheme = "tokyonight"
+
+-- Tokyonight Colorscheme Config
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_transparent = true
+vim.g.tokyonight_colors = {
+  border = '#1A1B26';
+}
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
@@ -8,16 +15,16 @@ if not status_ok then
 	return
 end
 
--- lsp completion popup colors
-vim.cmd([[highlight! Normal guibg=NONE]])
-vim.cmd([[highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080]])
-vim.cmd([[highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6]])
-vim.cmd([[highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6]])
-vim.cmd([[highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE]])
-vim.cmd([[highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE]])
-vim.cmd([[highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE]])
-vim.cmd([[highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0]])
-vim.cmd([[highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0]])
-vim.cmd([[highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4]])
-vim.cmd([[highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4]])
-vim.cmd([[highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4]])
+-- Floats/Windows
+vim.highlight.create('NormalFloat', { guibg = "None", guifg = "None" }, false);
+vim.highlight.create('FloatBorder', { guibg = "None" }, false);
+vim.highlight.create('WhichKeyFloat', { guibg = "None" }, false);
+vim.highlight.create('BufferTabpageFill', { guifg = "None" }, false);
+vim.highlight.create('VertSplit', { guibg = "#16161e", guifg = "#16161e" }, false);
+vim.highlight.link('BqfPreviewBorder', 'FloatBorder', true)
+
+-- Telescope
+vim.highlight.link('TelescopeTitle', 'EcovimSecondary', true);
+vim.highlight.create('TelescopeNormal', { guibg = "None", guifg = "None" }, false);
+vim.highlight.create('TelescopeBorder', { guibg = "None" }, false);
+vim.highlight.link('TelescopeMatching', 'Constant', true);

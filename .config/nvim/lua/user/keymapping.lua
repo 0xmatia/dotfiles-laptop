@@ -68,7 +68,7 @@ keymap("n", "<leader>e", "<cmd>:NvimTreeToggle<CR>", opts)
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
 
 -- close buffer
-keymap("n", "Q", "<cmd>bdelete<CR>", opts)
+keymap("n", "Q", "<cmd>Bdelete<CR>", opts)
 
 -- buffer switcher
 vim.api.nvim_set_keymap(

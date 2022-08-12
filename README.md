@@ -15,9 +15,17 @@ config remote add origin https://github.com/syb3rman/dotfiles.git
 config pull origin main
 ```
 
-# Programs
+## Required packages (not complete)
 * i3-gaps
 * polybar
 * picom-jonaburg-git
 * nvim
 * nvim-packer-git
+* fish-indent
+* zsh
+* oh-my-zsh
+* starship
+* exa
+* bat  
+* fd
+* rofi
