@@ -157,6 +157,8 @@ alias jctl="journalctl -p 3 -xb"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
+# prompt before deletion!
+alias rm="rm -i"
 
 ## Run neofetch if session is interactive
 neofetch

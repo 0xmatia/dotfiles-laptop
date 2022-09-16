@@ -14,8 +14,10 @@ while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
 if type "xrandr" > /dev/null; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload main -c ~/.config/polybar/config2 &
+	if [ $m = "HDMI-0" ]; then
+	    MONITOR=$m polybar --reload main -c ~/.config/polybar/polybar_config &
+	elif [ $m = "DVI-D-1" ]; then
+	    MONITOR=$m polybar --reload secondary -c ~/.config/polybar/polybar_config &
+	fi
   done
-else
-polybar --reload main -c ~/.config/polybar/config2 &
 fi
