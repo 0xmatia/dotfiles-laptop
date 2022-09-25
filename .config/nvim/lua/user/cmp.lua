@@ -81,7 +81,7 @@ cmp.setup {
 		},
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
-		["<CR>"] = cmp.mapping.confirm { select = true },
+		--[[ ["<CR>"] = cmp.mapping.confirm { select = true }, ]]
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -148,15 +148,8 @@ cmp.setup {
 		select = false,
 	},
 	window = {
-		-- documentation = "native",
-		documentation = {
-			border = "rounded",
-			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-		},
-		completion = {
-			border = "rounded",
-			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-		},
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
 		ghost_text = true

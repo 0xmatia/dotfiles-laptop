@@ -17,7 +17,8 @@ end
 local servers = {
 	"sumneko_lua",
 	"pyright",
-	"rust_analyzer"
+	"rust_analyzer",
+	"marksman"
 }
 
 local opts = {}
