@@ -279,8 +279,8 @@ assign [class="Firefox|firefox"]    → 2
 assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3|Code"]       → 3
 
 # Workspace 4 files
-assign [class="Pcmanfm"]         → 4
-assign [class="Nemo|Thunar|Caja|nautilus|Nautilus|ranger"]    → 4 
+assign [class="thunar"]         → 4
+assign [class="Nemo|Thunar|Caja|nautilus|Nautilus|ranger"]    → 4
 
 # Workspace 9: Communication
 assign [class="discord"]    → 9
@@ -309,7 +309,7 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 # picom (transparency)
-exec --no-startup-id picom -b --config ~/.config/i3/picom.conf
+exec --no-startup-id picom -b --experimental-backends --config ~/.config/picom/picom.conf
 
 # dunst - notifications
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
@@ -405,7 +405,7 @@ bindsym $mod+F2 exec --no-startup-id firefox;focus
 bindsym $mod+F3 exec --no-startup-id code;focus
 
 #workspace 4 related
-bindsym $mod+F4 exec --no-startup-id nautilus;focus
+bindsym $mod+F4 exec --no-startup-id thunar;focus
 
 #workspace 5 related
 #bindsym $mod+F5 exec --no-startup-id meld;focus
