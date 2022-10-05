@@ -18,8 +18,8 @@ font:
 
 window:
   padding:
-    x: 7
-    y: 5
+    x: 5
+    y: 0
   opacity: 0.6
 # colors!
 
