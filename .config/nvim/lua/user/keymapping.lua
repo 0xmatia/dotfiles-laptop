@@ -55,6 +55,7 @@ keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>fp", "<cmd>Telescope projects<CR>", opts)
+keymap("n", "<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
 
 -- gitsigns config
 keymap("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", opts)

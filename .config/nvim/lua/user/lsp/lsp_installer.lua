@@ -18,7 +18,8 @@ local servers = {
 	"sumneko_lua",
 	"pyright",
 	"rust_analyzer",
-	"marksman"
+	"marksman",
+	"clangd"
 }
 
 local opts = {}
@@ -34,6 +35,12 @@ for _, server in pairs(servers) do
 		-- merges two tables (overrides existing keys)
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
+
+	if server == "clangd" then
+		local sumneko_opts = require("user.lsp.settings.clangd")
+		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+	end
+
 	if server == 'rust_analyzer' then
 		local rust_opts = require("user.lsp.settings.rust")
 		require("rust-tools").setup(rust_opts)
