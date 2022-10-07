@@ -107,8 +107,9 @@ keymap("i", "kj", "<Esc>", opts)
 -- Visual --
 
 -- exit visual mode
-keymap("v", "jk", "<Esc>", opts)
-keymap("v", "kj", "<Esc>", opts)
+--[[ keymap("v", "jk", "<Esc>", opts) ]]
+--[[ keymap("v", "kj", "<Esc>", opts) ]]
+keymap("v", "qq", "<Esc>", opts)
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)

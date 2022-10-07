@@ -90,6 +90,7 @@ require('packer').startup(function()
 	-- Treesitter
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	use "JoosepAlviste/nvim-ts-context-commentstring"
+	use 'nvim-treesitter/nvim-treesitter-context'
 
 	-- Colorschemes --
 	use 'folke/tokyonight.nvim'

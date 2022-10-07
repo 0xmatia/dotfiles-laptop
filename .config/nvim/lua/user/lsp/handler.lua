@@ -22,7 +22,7 @@ local function lsp_keymaps(bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>F", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
 end
 
 -- exported setup function, used to init the lsp
@@ -72,25 +72,7 @@ M.setup = function()
 	})
 end
 
--- highlight matching word
--- local function lsp_highlight_document(client)
--- 	-- Set autocommands conditional on server_capabilities
--- 	if client.resolved_capabilities.document_highlight then
--- 		vim.api.nvim_exec(
--- 			[[
---       augroup lsp_document_highlight
---         autocmd! * <buffer>
---         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
---         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
---       augroup END
---     ]],
--- 			false
--- 		)
--- 	end
--- end
-
 -- exported function, calls on each lsp when attaching to a buffer
--- make lsp highlightr "matching words (symbols etc) and bind the keymaps
 M.on_attach = function(client, bufnr)
 	-- exported default capabilities
 	local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
@@ -109,36 +91,5 @@ M.on_attach = function(client, bufnr)
 	end
 	illuminate.on_attach(client)
 end
-
-function M.enable_format_on_save()
-	vim.cmd([[
-    augroup format_on_save
-      autocmd! 
-      autocmd BufWritePre * lua vim.lsp.buf.formatting()
-    augroup end
-  ]])
-	vim.notify("Enabled format on save")
-end
-
-function M.disable_format_on_save()
-	M.remove_augroup("format_on_save")
-	vim.notify("Disabled format on save")
-end
-
-function M.toggle_format_on_save()
-	if vim.fn.exists("#format_on_save#BufWritePre") == 0 then
-		M.enable_format_on_save()
-	else
-		M.disable_format_on_save()
-	end
-end
-
-function M.remove_augroup(name)
-	if vim.fn.exists("#" .. name) == 1 then
-		vim.cmd("au! " .. name)
-	end
-end
-
-vim.cmd([[ command! LspToggleAutoFormat execute 'lua require("user.lsp.handler").toggle_format_on_save()' ]])
 
 return M

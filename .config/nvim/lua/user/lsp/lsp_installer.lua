@@ -11,7 +11,7 @@ lsp_installer.setup()
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
-  return
+	return
 end
 
 local servers = {
@@ -50,4 +50,3 @@ for _, server in pairs(servers) do
 	lspconfig[server].setup(opts)
 	::continue::
 end
-
