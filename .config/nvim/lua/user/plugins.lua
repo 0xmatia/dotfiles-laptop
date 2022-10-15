@@ -54,7 +54,8 @@ require('packer').startup(function()
 	-- lsp --
 	use {
 		'neovim/nvim-lspconfig', -- lsp configuration for neovim
-		'williamboman/nvim-lsp-installer', -- lsp installer
+		'williamboman/mason.nvim', -- Mason - the lsp installer alternative.
+		'williamboman/mason-lspconfig.nvim', -- Mason lsp configurationlsp configuration
 		'ray-x/lsp_signature.nvim', -- signature as you type
 		'jose-elias-alvarez/null-ls.nvim'
 	}
