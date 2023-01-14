@@ -94,6 +94,5 @@ require('packer').startup(function()
 	use 'nvim-treesitter/nvim-treesitter-context'
 
 	-- Colorschemes --
-	use 'folke/tokyonight.nvim'
-	use "lunarvim/darkplus.nvim"
+	use "ellisonleao/gruvbox.nvim"
 end)

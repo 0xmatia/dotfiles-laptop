@@ -1,30 +1,30 @@
-require("tokyonight").setup({
-	style = "night",
-	transparent = false, -- Enable this to disable setting the background color
-	terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-	sidebars = { "qf", "help", "packer", "terminal" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-	lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
-
-	--- You can override specific color groups to use other groups or a hex color
-	--- function will be called with a ColorScheme table
-	---@param colors 'ColorScheme'
-	on_colors = function(colors)
-		colors.bg = '#252525';
-		colors.bg_float = '#252525';
-	end,
-
-	on_highlights = function(hl, c)
-		hl.LineNr = { bg = '#1f1e1e', fg = c.fg }
-	end,
-});
-
-local colorscheme = "tokyonight"
+local colorscheme = "gruvbox"
+-- setup must be called before loading the colorscheme
+-- Default options:
+require("gruvbox").setup({
+	undercurl = true,
+	underline = true,
+	bold = true,
+	italic = true,
+	strikethrough = true,
+	invert_selection = false,
+	invert_signs = false,
+	invert_tabline = false,
+	invert_intend_guides = false,
+	inverse = true, -- invert background for search, diffs, statuslines and errors
+	contrast = "hard", -- can be "hard", "soft" or empty string
+	palette_overrides = {},
+	overrides = {
+		NvimTreeNormal = { bg = "#151515" },
+		NormalFloat    = { link = 'Normal' },
+		FloatBorder    = { bg = 'None' }
+	},
+	dim_inactive = false,
+	transparent_mode = false,
+})
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
 	vim.notify("Colorscheme " .. colorscheme .. " not found!")
 	return
 end
-
--- Custom highligh groups!
-vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#333444" })

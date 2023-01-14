@@ -5,3 +5,4 @@ export BROWSER=/usr/bin/firefox
 export FZF_DEFAULT_OPTS="--cycle --layout=reverse --border --height=90% --preview='echo {} | fish_indent --ansi' --preview-window='bottom:3:wrap' --marker='*'"
 export FZF_CTRL_T_OPTS="--preview=\"if file {} | grep -q 'text'; then bat --style=numbers '{}'; else echo '{}' | fish_indent --ansi; fi\""
 . "$HOME/.cargo/env"
+export _JAVA_OPTIONS='-Dswing.aatext=TRUE -Dawt.useSystemAAFontSettings=on' # font anti-aliassing

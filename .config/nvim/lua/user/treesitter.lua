@@ -4,7 +4,7 @@
 
 require('nvim-treesitter.configs').setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = { "c", "lua", "python", "rust", "bash", "cpp", "json", "json5"},
+  ensure_installed = { "c", "lua", "python", "rust", "bash", "cpp", "json", "json5", "make"},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -22,7 +22,8 @@ require('nvim-treesitter.configs').setup {
 
     -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
     -- the name of the parser) list of language that will be disabled
-    disable = { "c", "rust" },
+    --[[ disable = { "c", "rust", "lua", "python", "bash", "cpp", "json5" }, ]]
+	disable = { "rust" },
 
 	autopairs = {
 		enabled = true,

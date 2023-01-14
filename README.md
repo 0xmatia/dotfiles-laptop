@@ -16,9 +16,12 @@ config pull origin main
 ```
 
 ## Required packages (not complete)
-* i3-gaps
+
+> TODO: Create a bash scrips to install everything
+
 * polybar
-* picom-jonaburg-git
+* i3
+* polybar
 * nvim
 * nvim-packer-git
 * fish-indent
@@ -29,3 +32,7 @@ config pull origin main
 * bat  
 * fd
 * rofi
+* xsel
+* xclip
+* arcolinux-logout
+* betterlockscreen

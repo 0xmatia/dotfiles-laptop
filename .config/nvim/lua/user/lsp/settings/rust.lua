@@ -24,6 +24,12 @@ return {
 				checkOnSave = {
 					command = "clippy",
 				},
+				inlayHints = {
+					lifetimeElisionHints = {
+						enable = true,
+					},
+				},
+
 			},
 		},
 	},

@@ -74,7 +74,7 @@ keymap("n", "Q", "<cmd>Bdelete<CR>", opts)
 -- buffer switcher
 vim.api.nvim_set_keymap(
   "n",
-  "=",
+  "<leader>ja",
   "<cmd>JABSOpen<cr>",
   { noremap = true, silent = true, nowait = true }
 )
@@ -82,6 +82,13 @@ vim.api.nvim_set_keymap(
 -- formatting
 vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 keymap("n", "<leader>F", ":Format<CR>", opts)
+
+-- delete without saving to register
+keymap("n", "<leader>d", [["_d]], opts)
+
+-- copy to system clipboard
+keymap("n", "<leader>Y", [["+Y]], opts)
+keymap("n", "<leader>y", [["+y]], opts)
 
 -- terminals
 keymap("n", "<leader>lg", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -119,8 +126,11 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 
--- don't replace text if pasting over other text
-keymap("v", "p", '"_dP', opts)
+-- copy to sytstem clipboard
+keymap("v", "<leader>y", [["+y]], opts)
+
+-- delete but do not save to register
+keymap("v", "<leader>d", [["_d]], opts)
 
 -- Visual Block --
 -- Move text up and down

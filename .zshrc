@@ -115,7 +115,7 @@ alias l.="exa -a | egrep '^\.'"                                     # show only 
 alias ip="ip -color"
 
 # Replace some more things with better alternatives
-alias cat='bat --style header,numbers --style rules --style snip --style changes --style header'
+alias cat='bat --style header,numbers --style snip --style changes --style header'
 
 # Common use
 alias grubup="sudo update-grub"
