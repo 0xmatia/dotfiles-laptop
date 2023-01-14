@@ -14,11 +14,9 @@ vim.opt.tabstop        = 4 -- tab size
 vim.opt.softtabstop    = 4
 vim.opt.shiftwidth     = 4
 vim.opt.autoindent     = true -- autoindent
---[[ vim.opt.wildmode       = { 'longest', 'list' } -- wildmenu options ]]
 vim.opt.completeopt    = { 'menuone', 'noselect' } -- autocomplete options
 vim.opt.syntax         = 'true' -- syntax
 vim.opt.mouse          = 'a' -- enable mouse support
---[[ vim.opt.clipboard      = 'unnamedplus' -- use system clipboard ]]
 vim.opt.cmdheight      = 1 -- more space in the neovim command line for displaying messages
 vim.opt.fileencoding   = 'utf-8' -- file encoding
 vim.opt.pumheight      = 10 -- popup menu hight
@@ -33,3 +31,4 @@ vim.opt.sidescrolloff  = 8
 vim.opt.termguicolors  = true -- rich colors
 vim.cmd('filetype plugin indent on') -- plugin indent on
 vim.cmd('filetype plugin on') -- plugin indent on
+vim.g.neovide_scale_factor = 0.75 -- modify neovide scale factor
