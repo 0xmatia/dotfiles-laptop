@@ -1,5 +1,5 @@
 -- don't activate in neovide
-if exists("g:neovide") then
+if vim.g.neovide then
 	return
 end
 
