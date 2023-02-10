@@ -1,45 +1,66 @@
------------------------------------------------------
--- Git stuff
------------------------------------------------------
+------------------
+-- Git Conflict --
+------------------
 
-require('gitsigns').setup {
-  signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-    change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-  },
-  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
-  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
-  watch_gitdir = {
-    interval = 1000,
-    follow_files = true
-  },
-  attach_to_untracked = true,
-  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-  current_line_blame_opts = {
-    virt_text = true,
-    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-    delay = 1000,
-    ignore_whitespace = false,
-  },
-  current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
-  sign_priority = 6,
-  update_debounce = 100,
-  status_formatter = nil, -- Use default
-  max_file_length = 40000,
-  preview_config = {
-    -- Options passed to nvim_open_win
-    border = 'single',
-    style = 'minimal',
-    relative = 'cursor',
-    row = 0,
-    col = 1
-  },
-  yadm = {
-    enable = false
-  },
+require 'git-conflict'.setup {
+
+}
+
+--------------
+-- Gitsigns --
+--------------
+
+-- local git_char = '▏'
+-- local git_char = '│'
+-- local git_char = '󰧟'
+-- local git_char = '–'
+-- local git_char = ''
+-- local git_char = '┊'
+-- local git_char = '┆'
+-- local git_char = '░'
+-- local git_char = '╎'
+local git_char = '╎'
+
+-- Display git changes.
+require 'gitsigns'.setup {
+	signs = {
+		add          = { text = git_char },
+		change       = { text = git_char },
+		delete       = { text = git_char },
+		topdelete    = { text = git_char },
+		changedelete = { text = git_char },
+		untracked    = { text = git_char }
+	},
+	signcolumn = true,
+	numhl = false
+}
+
+-------------
+-- Lazygit --
+-------------
+
+vim.g.lazygit_floating_window_winblend = 0 -- transparency of floating window
+vim.g.lazygit_floating_window_scaling_factor = 0.9 -- scaling factor for floating window
+vim.g.lazygit_floating_window_corner_chars = { '╭', '╮', '╰', '╯' } -- customize lazygit popup window corner characters
+vim.g.lazygit_floating_window_use_plenary = 0 -- use plenary.nvim to manage floating window if available
+vim.g.lazygit_use_neovim_remote = 1 -- fallback to 0 if neovim-remote is not installed
+
+------------------
+-- Git worktree --
+------------------
+
+require("git-worktree").setup({
+	change_directory_command = "cd",
+	update_on_change = true,
+	update_on_change_command = "e .",
+	clearjumps_on_change = true,
+	autopush = false,
+})
+
+--------------
+-- Diffview --
+--------------
+
+require 'diffview'.setup {
+	enhanced_diff_hl = true
 }

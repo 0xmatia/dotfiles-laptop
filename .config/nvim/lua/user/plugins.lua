@@ -61,7 +61,14 @@ require('packer').startup(function()
 	}
 
 	-- git stuff
-	use 'lewis6991/gitsigns.nvim'
+	use {
+		'lewis6991/gitsigns.nvim',
+		'akinsho/git-conflict.nvim',
+		'ThePrimeagen/git-worktree.nvim',
+		'sindrets/diffview.nvim',
+		'kdheepak/lazygit.nvim'
+	}
+
 
 	-- Auto Completion --
 	use {

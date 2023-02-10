@@ -55,6 +55,7 @@ keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>fp", "<cmd>Telescope projects<CR>", opts)
+keymap("n", "<leader>fw", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
 keymap("n", "<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
 
 -- gitsigns config
@@ -73,15 +74,15 @@ keymap("n", "Q", "<cmd>Bdelete<CR>", opts)
 
 -- buffer switcher
 vim.api.nvim_set_keymap(
-  "n",
-  "<leader>ja",
-  "<cmd>JABSOpen<cr>",
-  { noremap = true, silent = true, nowait = true }
+	"n",
+	"<leader>ja",
+	"<cmd>JABSOpen<cr>",
+	{ noremap = true, silent = true, nowait = true }
 )
 
 -- formatting
-vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
-keymap("n", "<leader>F", ":Format<CR>", opts)
+-- [[vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+--[[ keymap("n", "<leader>F", ":Format<CR>", opts) ]]
 
 -- delete without saving to register
 keymap("n", "<leader>d", [["_d]], opts)
@@ -138,3 +139,15 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+
+-- DAP --
+keymap('n', "<A-b>", "<Cmd>DapToggleBreakpoint<CR>", opts)
+keymap('n', "<A-o>", "<Cmd>DapStepOver<CR>", opts)
+keymap('n', "<A-T>", "<Cmd>DapTerminate<CR>", opts)
+keymap('n', "<A-i>", "<Cmd>DapStepInto<CR>", opts)
+keymap('n', "<A-u>", "<Cmd>DapStepOut<CR>", opts)
+keymap('n', "<A-c>", "<Cmd>DapContinue<CR>", opts)
+keymap('n', "<A-r>", "<Cmd>DapRestartFrame<CR>", opts)
+keymap('n', "<A-l>", "<Cmd>lua require 'dapui'.float_element('scopes')<CR>", opts)
+keymap('n', "<A-W>", "<Cmd>lua require 'dapui'.toggle()<CR>", opts)

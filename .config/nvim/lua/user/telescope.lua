@@ -102,3 +102,5 @@ telescope.setup {
 }
 
 telescope.load_extension 'notify'
+telescope.load_extension 'lazygit'
+telescope.load_extension 'git_worktree'

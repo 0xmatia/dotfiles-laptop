@@ -433,6 +433,7 @@ hide_edge_borders both
 bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 
 #changing border style
+default_border pixel 0
 bindsym $mod+i border normal
 bindsym $mod+y border pixel 2
 bindsym $mod+u border none
@@ -450,7 +451,6 @@ popup_during_fullscreen smart
 #     GAPS     #
 ################
 
-default_border pixel 2
 default_floating_border pixel 2
 gaps inner 5
 gaps outer 5
@@ -481,7 +481,7 @@ set $orange         #f28534
 
 # define colors for windows:
 #class		        	  border		bground			text		  indicator	   child_border
-client.focused          $yellowish	   $yellowish	  $dark-gray	  $dark-gray   $black
+client.focused          $yellowish	   $yellowish	  $dark-gray	  $black 	   $black
 client.unfocused        $dark-gray	   $dark-gray	  $text-color	  $dark-gray   $black
 client.focused_inactive $light-gray	   $dark-gray	  $text-color	  $dark-gray   $black
 client.urgent		   	$red		   $red		      $text-color	  $red         $black

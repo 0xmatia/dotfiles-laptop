@@ -14,6 +14,7 @@ vim.opt.tabstop        = 4 -- tab size
 vim.opt.softtabstop    = 4
 vim.opt.shiftwidth     = 4
 vim.opt.autoindent     = true -- autoindent
+vim.opt.expandtab      = true -- tab to spaces
 vim.opt.completeopt    = { 'menuone', 'noselect' } -- autocomplete options
 vim.opt.syntax         = 'true' -- syntax
 vim.opt.mouse          = 'a' -- enable mouse support
