@@ -41,9 +41,10 @@ keymap("n", "<A-j>", "<C-W>J", opts)
 keymap("n", "<A-k>", "<C-W>K", opts)
 keymap("n", "<A-l>", "<C-W>L", opts)
 
--- buffer navigation
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- buffers
+keymap("n", "<C-,>", "<cmd>BufferPrevious<CR>", opts)
+keymap("n", "<C-.>", "<cmd>BufferNext<CR>", opts)
+keymap("n", "<leader>b", "<cmd>BufferPick<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -56,7 +57,7 @@ keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>fp", "<cmd>Telescope projects<CR>", opts)
 keymap("n", "<leader>fw", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
-keymap("n", "<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
+keymap("n", "<leader>fs", "<cmd>Telescope lsp_workspace_symbols<CR>", opts)
 
 -- gitsigns config
 keymap("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", opts)
@@ -69,20 +70,10 @@ keymap("n", "<leader>e", "<cmd>:NvimTreeToggle<CR>", opts)
 -- stop highlighting formatted text
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
 
+keymap("n", "<leader>?", "<cmd>Cheatsheet<cr>", opts)
+
 -- close buffer
 keymap("n", "Q", "<cmd>Bdelete<CR>", opts)
-
--- buffer switcher
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>ja",
-	"<cmd>JABSOpen<cr>",
-	{ noremap = true, silent = true, nowait = true }
-)
-
--- formatting
--- [[vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
---[[ keymap("n", "<leader>F", ":Format<CR>", opts) ]]
 
 -- delete without saving to register
 keymap("n", "<leader>d", [["_d]], opts)

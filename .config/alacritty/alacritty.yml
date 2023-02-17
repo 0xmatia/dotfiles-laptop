@@ -270,3 +270,10 @@ colors:
    magenta: '0xd3869b'
    cyan:    '0x89b482'
    white:   '0xdfbf8e'
+
+
+# Keymapping for neovim
+
+key_bindings:
+  - { key: Period, mods: Control, chars: "\x1b[46;5u" }
+  - { key: Comma, mods: Control, chars: "\x1b[44;5u" }
