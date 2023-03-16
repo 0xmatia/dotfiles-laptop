@@ -243,13 +243,12 @@ bindsym $mod+Mod1+Ctrl+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
 
 ##################################
-#         choose the font        #
+#         Window titles          #
 ##################################
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
 # choose your font
 font pango:Jetbrains Mono Nerd Font Regular 9
+title_align center
 
 ################################################
 #       assign applications to workspaces      #
