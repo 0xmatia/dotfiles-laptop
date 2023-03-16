@@ -249,7 +249,7 @@ bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # choose your font
-font pango:Jetbrains Mono Nerd Font Regular 13
+font pango:Jetbrains Mono Nerd Font Regular 9
 
 ################################################
 #       assign applications to workspaces      #
@@ -483,5 +483,5 @@ set $orange         #f28534
 #class		        	  border		bground			text		  indicator	   child_border
 client.focused          $yellowish	   $yellowish	  $dark-gray	  $black 	   $black
 client.unfocused        $dark-gray	   $dark-gray	  $text-color	  $dark-gray   $black
-client.focused_inactive $light-gray	   $dark-gray	  $text-color	  $dark-gray   $black
+client.focused_inactive $light-gray	   $yellowish	  $dark-gray	  $dark-gray   $black
 client.urgent		   	$red		   $red		      $text-color	  $red         $black
