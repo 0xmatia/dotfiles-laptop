@@ -75,6 +75,17 @@ require('packer').startup(function()
         }
     }
 
+    use { 'MunifTanjim/exrc.nvim', config = function()
+        require("exrc").setup({
+            files = {
+                ".nvimrc.lua",
+                ".nvimrc",
+                ".exrc.lua",
+                ".exrc",
+            },
+        })
+    end }
+
     -- git stuff
     use {
         'lewis6991/gitsigns.nvim',
