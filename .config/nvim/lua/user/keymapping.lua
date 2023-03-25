@@ -75,12 +75,10 @@ keymap("n", "<leader>?", "<cmd>Cheatsheet<cr>", opts)
 -- close buffer
 keymap("n", "Q", "<cmd>Bdelete<CR>", opts)
 
--- delete without saving to register
-keymap("n", "<leader>d", [["_d]], opts)
-
--- copy to system clipboard
+-- copy/paste to system clipboard
 keymap("n", "<leader>Y", [["+Y]], opts)
 keymap("n", "<leader>y", [["+y]], opts)
+keymap("n", "<leader>p", [["+p]], opts)
 
 -- terminals
 keymap("n", "<leader>lg", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
