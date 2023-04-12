@@ -45,6 +45,7 @@ keymap("n", "<A-l>", "<C-W>L", opts)
 keymap("n", "<C-,>", "<cmd>BufferPrevious<CR>", opts)
 keymap("n", "<C-.>", "<cmd>BufferNext<CR>", opts)
 keymap("n", "<leader>b", "<cmd>BufferPick<CR>", opts)
+keymap("n", "<A-p>", "<cmd>BufferPin<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -73,7 +74,7 @@ keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
 keymap("n", "<leader>?", "<cmd>Cheatsheet<cr>", opts)
 
 -- close buffer
-keymap("n", "Q", "<cmd>Bdelete<CR>", opts)
+keymap("n", "Q", "<cmd>BufferClose<CR>", opts)
 
 -- copy/paste to system clipboard
 keymap("n", "<leader>Y", [["+Y]], opts)

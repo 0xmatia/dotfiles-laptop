@@ -3,13 +3,14 @@
 ---------------------------------------------------------
 
 require('packer').startup(function()
-    use 'wbthomason/packer.nvim' -- Packer can manage itself
+    use 'wbthomason/packer.nvim'                                                -- Packer can manage itself
     use { 'goolord/alpha-nvim', requires = { 'kyazdani42/nvim-web-devicons' } } -- startup screen
 
-    use 'ahmedkhalf/project.nvim' -- project managment
-    use 'rcarriga/nvim-notify' -- notification library
-    use "lukas-reineke/indent-blankline.nvim" --indentations
-    use 'moll/vim-bbye'
+    use 'ahmedkhalf/project.nvim'                                               -- project managment
+    use 'rcarriga/nvim-notify'                                                  -- notification library
+    use "lukas-reineke/indent-blankline.nvim"                                   --indentations ]]
+    --[[ use 'moll/vim-bbye' ]]
+    -- barbar.nvim already includes a modified version of the plugin
 
     -- ui helpers --
     use 'NvChad/nvim-colorizer.lua'
@@ -19,17 +20,16 @@ require('packer').startup(function()
     use 'windwp/nvim-autopairs' -- auto pairs
     use 'j-hui/fidget.nvim'
 
-
     -- comments --
     use {
         "folke/todo-comments.nvim", -- for todo comments
-        'numToStr/Comment.nvim', -- useful for commenting stuff
+        'numToStr/Comment.nvim',    -- useful for commenting stuff
         requires = { "nvim-lua/plenary.nvim" }
     }
 
     -- File tree --
     use {
-        'kyazdani42/nvim-tree.lua', -- file explorer
+        'kyazdani42/nvim-tree.lua',        -- file explorer
         requires = {
             'kyazdani42/nvim-web-devicons' -- file icons
         },
@@ -52,16 +52,16 @@ require('packer').startup(function()
 
     -- lsp --
     use {
-        'neovim/nvim-lspconfig', -- lsp configuration for neovim
-        'williamboman/mason.nvim', -- Mason - the lsp installer alternative.
+        'neovim/nvim-lspconfig',             -- lsp configuration for neovim
+        'williamboman/mason.nvim',           -- Mason - the lsp installer alternative.
         'williamboman/mason-lspconfig.nvim', -- Mason lsp configurationlsp configuration
-        'ray-x/lsp_signature.nvim', -- signature as you type
+        'ray-x/lsp_signature.nvim',          -- signature as you type
         'jose-elias-alvarez/null-ls.nvim',
 
         -- rust --
-        'rust-lang/rust.vim', -- rust default settings
+        'rust-lang/rust.vim',       -- rust default settings
         'simrat39/rust-tools.nvim', -- rust tools for debugging and stuff
-        'cespare/vim-toml', -- toml support
+        'cespare/vim-toml',         -- toml support
         "Saecki/crates.nvim"
     }
 
@@ -75,7 +75,9 @@ require('packer').startup(function()
         }
     }
 
-    use { 'MunifTanjim/exrc.nvim', config = function()
+    -- local project config
+    use { 'MunifTanjim/exrc.nvim', requires = { 'MunifTanjim/nui.nvim' }, config = function()
+        vim.o.exrc = false
         require("exrc").setup({
             files = {
                 ".nvimrc.lua",
@@ -100,19 +102,19 @@ require('packer').startup(function()
 
     -- Auto Completion --
     use {
-        'hrsh7th/nvim-cmp', -- Autocompletion framework
-        'hrsh7th/cmp-nvim-lsp', -- cmp LSP completion
-        'hrsh7th/cmp-path', -- cmp Path completion
-        'hrsh7th/cmp-buffer', -- cmp buffer completion
-        'hrsh7th/cmp-cmdline', -- cmp cmdline auto-completion
-        'petertriho/cmp-git', -- for git auto-completion
-        'hrsh7th/cmp-nvim-lua', -- for nvim lua auto-completion
+        'hrsh7th/nvim-cmp',         -- Autocompletion framework
+        'hrsh7th/cmp-nvim-lsp',     -- cmp LSP completion
+        'hrsh7th/cmp-path',         -- cmp Path completion
+        'hrsh7th/cmp-buffer',       -- cmp buffer completion
+        'hrsh7th/cmp-cmdline',      -- cmp cmdline auto-completion
+        'petertriho/cmp-git',       -- for git auto-completion
+        'hrsh7th/cmp-nvim-lua',     -- for nvim lua auto-completion
         "saadparwaiz1/cmp_luasnip", -- snippet completion
         'rcarriga/cmp-dap',
-        'onsails/lspkind-nvim' -- customize popup
+        'onsails/lspkind-nvim'      -- customize popup
     }
     -- snippets --
-    use "L3MON4D3/LuaSnip" -- snippet engine
+    use "L3MON4D3/LuaSnip"             -- snippet engine
     use "rafamadriz/friendly-snippets" --snippet collection
 
 
@@ -122,11 +124,11 @@ require('packer').startup(function()
         'nvim-lua/popup.nvim',
         'nvim-telescope/telescope.nvim'
     }
-
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use "JoosepAlviste/nvim-ts-context-commentstring"
     use 'nvim-treesitter/nvim-treesitter-context'
+    use 'nvim-treesitter/playground'
 
     -- Colorschemes --
     use "ellisonleao/gruvbox.nvim"

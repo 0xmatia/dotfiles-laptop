@@ -23,7 +23,6 @@ require('nvim-treesitter.configs').setup {
     -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
     -- the name of the parser) list of language that will be disabled
     --[[ disable = { "c", "rust", "lua", "python", "bash", "cpp", "json5" }, ]]
-	disable = { "rust" },
 
 	autopairs = {
 		enabled = true,

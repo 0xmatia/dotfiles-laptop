@@ -1,6 +1,6 @@
 -------------------------------------------------------------------
 -- General vim options
--------------------------------------------------------------------
+---------------------------------------------------------------------
 
 vim.opt.number         = true -- Row numbers
 vim.opt.relativenumber = true
@@ -18,7 +18,6 @@ vim.opt.expandtab      = true -- tab to spaces
 vim.opt.completeopt    = { 'menuone', 'noselect' } -- autocomplete options
 vim.opt.syntax         = 'true' -- syntax
 vim.opt.mouse          = 'a' -- enable mouse support
-vim.opt.cmdheight      = 1 -- more space in the neovim command line for displaying messages
 vim.opt.fileencoding   = 'utf-8' -- file encoding
 vim.opt.pumheight      = 10 -- popup menu hight
 vim.opt.cursorline     = true -- highlight line
