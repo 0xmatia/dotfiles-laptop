@@ -21,6 +21,7 @@ config pull origin main
 
 * polybar
 * i3
+* picom-pijulius-git
 * polybar
 * nvim
 * nvim-packer-git
