@@ -15,11 +15,13 @@ if grep -Fxq "$DIM" $FILENAME
 then
 	printf "wusuppppp\n"
     sed -i "s/$DIM/$NO_DIM/g" $FILENAME
+    killall -9 picom; picom -b --config ~/.config/picom/picom.conf
     echo ' On' >> $STATE_FILE
 
 # Currently no dim.
 else
     sed -i "s/$NO_DIM/$DIM/g" $FILENAME
+    killall -9 picom; picom -b --config ~/.config/picom/picom.conf
     echo 'Off' >> $STATE_FILE
 
 fi
