@@ -18,7 +18,7 @@ require("user.barbar") -- bufferline
 require("user.impatient") -- use caching
 require("user.todo-comments") -- todo comments
 require("user.project") -- project managment
-require("user.notify") -- notification library
+--[[ require("user.notify") -- notification library ]]
 require("user.neoscroll") -- smooth scrolling
 require("user.indentline") -- highlight indents
 require("user.dap") -- debuffer interface

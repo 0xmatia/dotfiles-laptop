@@ -6,3 +6,5 @@ export FZF_DEFAULT_OPTS="--cycle --layout=reverse --border --height=90% --previe
 export FZF_CTRL_T_OPTS="--preview=\"if file {} | grep -q 'text'; then bat --style=numbers '{}'; else echo '{}' | fish_indent --ansi; fi\""
 . "$HOME/.cargo/env"
 export _JAVA_OPTIONS='-Dswing.aatext=TRUE -Dawt.useSystemAAFontSettings=on' # font anti-aliassing
+export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+export __GL_SHADER_DISK_CACHE_SIZE=100000000000 #100 gb max disk size of cache

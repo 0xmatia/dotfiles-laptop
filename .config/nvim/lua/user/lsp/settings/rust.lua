@@ -11,7 +11,7 @@ return {
     server = {
         on_attach = require("user.lsp.handler").on_attach,
         capabilities = require("user.lsp.handler").capabilities,
-        cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+        --[[ cmd = { "rustup", "run", "nightly", "rust-analyzer" }, ]]
         settings = {
             ["rust-analyzer"] = {
                 assist = {
