@@ -18,7 +18,7 @@ require('packer').startup(function()
     use 'karb94/neoscroll.nvim' -- smooth scrolling
     use 'RRethy/vim-illuminate'
     use 'windwp/nvim-autopairs' -- auto pairs
-    use 'j-hui/fidget.nvim'
+    use { 'j-hui/fidget.nvim', tag = "legacy" }
 
     -- comments --
     use {

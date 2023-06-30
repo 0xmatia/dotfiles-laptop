@@ -184,7 +184,6 @@ end)
 
 -- When neovim opens.
 local function open_nvim_tree(data)
-    print(vim.inspect(data))
     vim.cmd.cd(data.file:match '(.+)/[^/]*$')
     local directory = vim.fn.isdirectory(data.file) == 1
     if not directory then return end

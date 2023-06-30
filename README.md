@@ -37,3 +37,4 @@ config pull origin main
 * xclip
 * arcolinux-logout
 * betterlockscreen
+* lightdm-greeter: https://github.com/manilarome/lightdm-webkit2-theme-glorious
