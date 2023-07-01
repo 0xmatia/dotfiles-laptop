@@ -9,8 +9,7 @@ require('packer').startup(function()
     use 'ahmedkhalf/project.nvim'                                               -- project managment
     use 'rcarriga/nvim-notify'                                                  -- notification library
     use "lukas-reineke/indent-blankline.nvim"                                   --indentations ]]
-    --[[ use 'moll/vim-bbye' ]]
-    -- barbar.nvim already includes a modified version of the plugin
+    use 'moll/vim-bbye'
 
     -- ui helpers --
     use 'NvChad/nvim-colorizer.lua'
@@ -39,7 +38,7 @@ require('packer').startup(function()
     use 'lewis6991/impatient.nvim'
 
     -- topbar --
-    use { 'romgrk/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
     -- terminal
     use "akinsho/toggleterm.nvim"

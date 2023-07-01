@@ -14,7 +14,7 @@ require("user.git") -- git stuff
 require("user.nvimtree") -- nvim tree
 require("user.lualine") -- lualine config
 require("user.toggleterm") -- toggleterm
-require("user.barbar") -- bufferline
+require("user.bufferline") -- bufferline
 require("user.impatient") -- use caching
 require("user.todo-comments") -- todo comments
 require("user.project") -- project managment

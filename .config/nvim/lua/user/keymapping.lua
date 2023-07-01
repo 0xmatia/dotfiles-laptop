@@ -6,7 +6,7 @@ local opts = { noremap = true, silent = true }
 -- local term_opts = { silent }
 
 -- shortcut for creating a mapping
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- set leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -34,6 +34,7 @@ keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "Q", "<cmd>BufferClose<CR>", opts)
 
 -- move split panes
 keymap("n", "<A-h>", "<C-W>H", opts)
@@ -42,10 +43,12 @@ keymap("n", "<A-k>", "<C-W>K", opts)
 keymap("n", "<A-l>", "<C-W>L", opts)
 
 -- buffers
-keymap("n", "<C-,>", "<cmd>BufferPrevious<CR>", opts)
-keymap("n", "<C-.>", "<cmd>BufferNext<CR>", opts)
-keymap("n", "<leader>b", "<cmd>BufferPick<CR>", opts)
-keymap("n", "<A-p>", "<cmd>BufferPin<CR>", opts)
+keymap("n", "<C-,>", "<cmd>BufferLineCyclePrev<CR>", opts)
+keymap("n", "<C-.>", "<cmd>BufferLineCycleNext<CR>", opts)
+keymap("n", "<leader>b", "<cmd>BufferLinePick<CR>", opts)
+keymap("n", "<leader>B", "<cmd>BufferLinePickClose<CR>", opts)
+keymap("n", "<A-p>", "<cmd>BufferLineTogglePin<CR>", opts)
+keymap("n", "Q",  "<cmd>Bdelete<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -72,9 +75,6 @@ keymap("n", "<leader>e", "<cmd>:NvimTreeToggle<CR>", opts)
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
 
 keymap("n", "<leader>?", "<cmd>Cheatsheet<cr>", opts)
-
--- close buffer
-keymap("n", "Q", "<cmd>BufferClose<CR>", opts)
 
 -- copy/paste to system clipboard
 keymap("n", "<leader>Y", [["+Y]], opts)
