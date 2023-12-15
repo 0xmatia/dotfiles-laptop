@@ -1,4 +1,4 @@
- # See dunst(5) for all configuration options
+# See dunst(5) for all configuration options
 
 [global]
     ### Display ###
@@ -22,9 +22,9 @@
     ### Geometry ###
 
     # dynamic width from 0 to 300
-    # width = (0, 300)
+    width = (200, 300)
     # constant width of 300
-    width = 300
+    # width = 300
 
     # The maximum height of a single notification, excluding the frame.
     height = 300
@@ -33,7 +33,9 @@
     origin = bottom-right
 
     # Offset from the origin
-    offset = 9x34
+    offset = 6x30
+    # offset = 10x35 # i3 gaps = 20x20
+    # (H_Right_Gap/2) x (25+V_Bottom_Gap/2)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -75,10 +77,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 11
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 11
 
     # Padding between text and icon.
     text_icon_padding = 0
@@ -87,17 +89,13 @@
     # Set to 0 to disable.
     frame_width = 2
 
-    # Defines color of the frame around the notification window.
-    # frame_color = "#458588"
-    # frame_color = "#458588"
-
     # Define a color for the separator.
     # possible values are:
     #  * auto: dunst tries to find a color fitting to the background;
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = auto
+    separator_color = "#1a1b26"
 
     # Sort messages by urgency.
     sort = yes
@@ -107,11 +105,11 @@
     # Set to 0 to disable.
     # A client can set the 'transient' hint to bypass this. See the rules
     # section for how to disable this if necessary
-    idle_threshold = 0
+    idle_threshold = 120
 
     ### Text ###
 
-    font = JetBrainsMono Nerd Font 9
+    font = JetBrainsMono Nerd Font Medium 9
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -155,7 +153,7 @@
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
 
     # Vertical alignment of message text and icon.
     # Possible values are "top", "center" and "bottom".
@@ -206,7 +204,7 @@
     sticky_history = false
 
     # Maximum amount of notifications kept in history
-    history_length = 0
+    history_length = 100
 
     ### Misc/Advanced ###
 
@@ -214,7 +212,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/xdg-open
+    browser = /usr/bin/brave
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -230,7 +228,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 15
+    corner_radius = 10
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -288,32 +286,6 @@
     # using the resolution and physical size. This might be useful in setups
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
-
-[urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#242933"
-    foreground = "#E5E9F0"
-    frame_color = "#8FBCBB"
-    timeout = 5
-    # Icon for notifications with low urgency, uncomment to enable
-    icon = /usr/share/icons/Arc-X-D/status/16/dialog-information.png
-
-[urgency_normal]
-    background = "#242933"
-    foreground = "#E5E9F0"
-    frame_color = "#8FBCBB"
-    timeout = 5
-    # Icon for notifications with normal urgency, uncomment to enable
-    icon = /usr/share/icons/Arc-X-D/status/16/dialog-question.png
-
-[urgency_critical]
-    background = "#242933"
-    foreground = "#E5E9F0"
-    frame_color = "#BF616A"
-    timeout = 60
-    # Icon for notifications with critical urgency, uncomment to enable
-    icon = /usr/share/icons/Arc-X-D/status/16/dialog-warning.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -384,9 +356,13 @@
 #           withdrawn from screen again and will get delayed like a new notification
 #[fullscreen_delay_everything]
 #    fullscreen = delay
-#[fullscreen_show_critical]
-#    msg_urgency = critical
-#    fullscreen = show
+[fullscreen_show_critical]
+   msg_urgency = critical
+   fullscreen = show
+[fullscreen_show_normal]
+   msg_urgency = normal 
+   fullscreen = show
+
 
 #[espeak]
 #    summary = "*"
@@ -434,5 +410,37 @@
 [stack-volumes]
     appname = "some_volume_notifiers"
     set_stack_tag = "volume"
-#
-# vim: ft=cfg
+
+[flameshot-urgency]
+    appname = flameshot
+    urgency = low 
+
+[whatsapp-alignment]
+    appname = whatsapp-nativefier-d40211
+    alignment = left
+
+[discord-alignment]
+    appname = discord
+    alignment = left
+
+[signal-alignment]
+    appname = Signal 
+    alignment = left
+
+[urgency_low]
+    background = "#16161e"
+    foreground = "#ebcb8b"
+    frame_color = "#1f2335"
+    timeout = 3
+
+[urgency_normal]
+    background = "#16161e"
+    foreground = "#c0caf5"
+    frame_color = "#3d59a1"
+    timeout = 15
+
+[urgency_critical]
+    background = "#191D24"
+    foreground = "#c0caf5"
+    frame_color = "#db4b4b"
+    timeout = 60

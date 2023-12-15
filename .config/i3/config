@@ -51,10 +51,9 @@ set $right l
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
-exec --no-startup-id xrandr --output DVI-D-1 --right-of HDMI-0 --auto
 
-set $firstMonitor HDMI-0 
-set $secondMonitor DVI-D-1 
+set $firstMonitor eDP-1 
+set $secondMonitor eDP-1 
 
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
@@ -206,7 +205,7 @@ for_window [urgent=latest] focus
 default_orientation horizontal
 
 # split in horizontal orientation
-bindsym $mod++ctrl+h split h
+bindsym $mod+ctrl+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -230,6 +229,11 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
 ###################
 #      resize     #
 ###################
@@ -245,8 +249,8 @@ bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
 ##################################
 
 # choose your font
-font pango:Jetbrains Mono Nerd Font Regular 9
-title_align center
+font pango:Jetbrains Mono Nerd Font Regular 6
+title_align left
 
 ################################################
 #       assign applications to workspaces      #
@@ -256,17 +260,17 @@ title_align center
 # you can find the class with the program xprop
 
 # Workspace 2 browser related
-assign [class="Firefox|firefox"]    → 2
+assign [class="Firefox|firefox"] → 2
 
 # Workspace 3 text editor, codeing, development
-assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3|Code"]       → 3
+assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3|Code"] → 3
 
 # Workspace 4 files
-assign [class="thunar"]         → 4
-assign [class="Nemo|Thunar|Caja|nautilus|Nautilus|ranger"]    → 4
+assign [class="thunar"] → 4
+assign [class="Nemo|Thunar|Caja|nautilus|Nautilus|ranger"] → 4
 
 # Workspace 9: Communication
-assign [class="discord"]    → 9
+assign [class="discord"] → 9
 
 #######################
 #       autostart     # 
@@ -283,6 +287,9 @@ exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 #discord
 exec --no-startup-id discord
+
+# screen layout
+exec --no-startup-id ~/.config/xrandr.sh
 
 # dunst - notifications
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
@@ -301,11 +308,8 @@ exec_always --no-startup-id xfce4-power-manager --daemon
 #Authentication dialog
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 
-# Updater
-exec --no-startup-id pamac-tray
-
 # bluetooth
-#exec --no-startup-id blueberry-tray
+exec --no-startup-id blueberry-tray
 
 # network
 exec --no-startup-id nm-applet
@@ -363,12 +367,14 @@ bindsym $mod+F4 exec --no-startup-id thunar;focus
 #           screenshots         #
 #################################
 
-bindsym Print exec --no-startup-id flameshot full -p /home/syberman/Pictures
+bindsym Print exec --no-startup-id flameshot full -p $HOME/Pictures
+bindsym Control+shift+s exec --no-startup-id flameshot gui
 
 #####################################
 #         floating or tiled         #
 #####################################
 
+# floating_minimum_size 1080x1200
 
 #floating enabled from some programs - find with xprop
 for_window [class="burp-StartBurp"] floating enable
@@ -382,7 +388,7 @@ for_window [class="^Gpick$"] floating enable
 for_window [class="Hexchat"] floating disable
 for_window [class="Imagewriter"] floating enable
 for_window [class="Font-manager"] floating enable
-for_window [class="Nitrogen"] floating disable
+for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating disable
 for_window [class="Peek"] floating enable
 for_window [class="^Skype$"] floating enable
@@ -415,12 +421,20 @@ for_window [window_role="setup"] floating enable
 
 
 #######################
-#      xbacklight     #
+#   Keyboard keys    #
 #######################
 
 # bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
 # bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
 
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && notify-send --urgency=low "󰃠  Brightness: $((($(brightnessctl g)*100)/$(brightnessctl m)))%"
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && notify-send --urgency=low "󰃠  Brightness: $((($(brightnessctl g)*100)/$(brightnessctl m)))%"
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 3 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 3 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 3 toggle # mute sound
+
+bindsym F9 exec --no-startup-id pactl set-source-mute 5 toggle
 ##############################
 #       border control      #
 #############################
@@ -449,10 +463,10 @@ popup_during_fullscreen smart
 ################
 
 default_floating_border pixel 2
-gaps inner 5
-gaps outer 5
-#smart_gaps on
-#smart_borders on
+gaps inner 1
+gaps outer 1
+smart_gaps on
+smart_borders on
 
 
 ##########################
@@ -478,7 +492,7 @@ set $orange         #f28534
 
 # define colors for windows:
 #class		        	  border		bground			text		  indicator	   child_border
-client.focused          $yellowish	   $yellowish	  $dark-gray	  $black 	   $black
-client.unfocused        $dark-gray	   $dark-gray	  $text-color	  $dark-gray   $black
-client.focused_inactive $light-gray	   $yellowish	  $dark-gray	  $dark-gray   $black
-client.urgent		   	$red		   $red		      $text-color	  $red         $black
+#client.focused          $yellowish	   $yellowish	  $dark-gray	  $black 	   $black
+#client.unfocused        $dark-gray	   $dark-gray	  $text-color	  $dark-gray   $black
+#client.focused_inactive $light-gray	   $yellowish	  $dark-gray	  $dark-gray   $black
+#client.urgent		   	$red		   $red		      $text-color	  $red         $black

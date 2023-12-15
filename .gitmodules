@@ -1,0 +1,3 @@
+[submodule "/home/matia/.config/nvim"]
+	path = /home/matia/.config/nvim
+	url = git@github.com:0xmatia/nvim.git

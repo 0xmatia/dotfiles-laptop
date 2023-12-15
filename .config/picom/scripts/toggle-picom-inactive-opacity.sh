@@ -1,8 +1,8 @@
 # Data.
 NO_DIM="  opacity: 1.0"
 DIM="  opacity: 0.8"
-FILENAME="/home/syberman/.config/alacritty/alacritty.yml"
-STATE_FILE="/home/syberman/.config/picom/read-mode-state"
+FILENAME="$HOME/.config/alacritty/alacritty.yml"
+STATE_FILE="$HOME/.config/picom/read-mode-state"
 
 # Clear the file contents.
 > $STATE_FILE

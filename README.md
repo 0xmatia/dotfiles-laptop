@@ -11,7 +11,7 @@ I followed [this](https://dev.to/nimai/yet-another-guide-on-backing-up-dotfiles-
 git init --bare $HOME/.cfg
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
-config remote add origin https://github.com/syb3rman/dotfiles.git
+config remote add origin git@github.com:0xmatia/dotfiles-laptop.git
 config pull origin main
 ```
 
@@ -21,11 +21,9 @@ config pull origin main
 
 * polybar
 * i3
-* picom-pijulius-git
+* picom
 * polybar
 * nvim
-* nvim-packer-git
-* fish-indent
 * zsh
 * oh-my-zsh
 * starship
@@ -37,4 +35,3 @@ config pull origin main
 * xclip
 * arcolinux-logout
 * betterlockscreen
-* lightdm-greeter: https://github.com/manilarome/lightdm-webkit2-theme-glorious

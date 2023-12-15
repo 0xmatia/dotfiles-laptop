@@ -161,5 +161,5 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias rm="rm -i"
 
 ## Run neofetch if session is interactive
-neofetch
+neofetch --disable gpu
 eval "$(starship init zsh)"

@@ -3,7 +3,7 @@ configuration {
 	modi:                       "drun";
     show-icons:                 true;
     display-drun:               "  Apps";
-    font:                       "JetBrainsMono Nerd Font 10";
+    font:                       "JetBrainsMono Nerd Font 16";
     icon-theme:                 "Papirus";
 }
 
@@ -16,7 +16,8 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       700px;
+    width:                       1200px;
+    height:                      600px;
     x-offset:                    0px;
     y-offset:                    0px;
     enabled:                     true;

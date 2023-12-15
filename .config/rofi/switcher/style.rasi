@@ -3,7 +3,7 @@ configuration {
 	modi:                       "window";
     show-icons:                 true;
     display-window:             "  Windows";
-    font:                       "JetBrainsMono Nerd Font 10";
+    font:                       "JetBrainsMono Nerd Font 16";
     icon-theme:                 "Papirus";
 }
 
@@ -16,7 +16,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       700px;
+    width:                       1000px;
     x-offset:                    0px;
     y-offset:                    0px;
     enabled:                     true;
