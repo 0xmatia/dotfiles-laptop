@@ -1,5 +1,5 @@
 [init]
-	defaultBranch = main
+	defaultBranch = master
 [user]
-	email = elad.matia@gmail.com
 	name = Elad Matia
+	email = elad.matia@gmail.com
